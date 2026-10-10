@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ketaki Khadilkar — Industrial Design Portfolio</title>
+  <meta name="description" content="Portfolio of Ketaki Khadilkar, an Industrial & Product Design student at MIT-WPU. Featuring SLIQUE toaster, SyncForce rescue tool, AvoSpin fidget toy, and Modulo flatpack furniture." />
+  <meta name="author" content="Ketaki Khadilkar" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===== EPIC PRELOADER — Inspired by Studio Carbon ===== -->
+  <div id="preloader" aria-hidden="true">
+    <div class="loader-bg"></div>
+    
+    <!-- Morphing SVG Asterisk -->
+    <div class="loader-asterisk" id="loaderAsterisk">
+      <svg viewBox="0 0 200 200" class="loader-svg">
+        <path id="morphPath" fill="currentColor" d="M116 192C107 191 100 184 100 175V161C100 156 94 153 91 157L71 177C64 184 53 184 46 176C40 170 41 159 48 153L57 143C61 140 59 134 54 134H25C15 134 8 126 8 116C9 107 17 100 26 100H39C45 100 47 94 43 91L23 70C16 64 17 53 24 46C31 40 41 41 48 47L57 57C61 61 67 58 67 53V25C67 15 75 8 84 8C93 9 100 16 100 26V39C100 45 106 47 110 43L130 23C137 16 148 16 154 24C160 31 159 41 153 47L143 57C140 61 142 66 147 66H175C184 66 192 74 192 83C193 92 185 100 176 100H161C156 100 153 106 157 110L177 130C184 137 184 148 176 154C170 160 159 159 153 153L143 143C140 140 134 142 134 147V175C134 185 126 193 116 192Z"/>
+      </svg>
+    </div>
+
+    <!-- Text Cycler -->
+    <div class="loader-text-cycler" id="loaderTextCycler">
+      <div class="loader-word active">DESIGN</div>
+      <div class="loader-word">CREATE</div>
+      <div class="loader-word">BUILD</div>
+      <div class="loader-word">INNOVATE</div>
+      <div class="loader-word">KETAKI</div>
+    </div>
+
+    <!-- Percentage Counter -->
+    <div class="loader-counter">
+      <span class="loader-percent" id="loaderPercent">0</span>
+      <span class="loader-percent-sign">%</span>
+    </div>
+
+    <!-- Loader Tagline -->
+    <div class="loader-tagline" id="loaderTagline">Industrial Design Portfolio</div>
+
+    <!-- Curtain Panels -->
+    <div class="curtain-left" id="curtainLeft"></div>
+    <div class="curtain-right" id="curtainRight"></div>
+  </div>
+
+  <!-- ===== CURSOR GLOW ===== -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- ===== FLOATING PARTICLES ===== -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav id="navbar">
+    <a href="#hero" class="nav-logo">
+      <span class="logo-letter">K</span><span class="logo-letter">K</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#about" data-nav>About</a>
+      <a href="#slique" data-nav>Slique</a>
+      <a href="#syncforce" data-nav>SyncForce</a>
+      <a href="#avospin" data-nav>AvoSpin</a>
+      <a href="#modulo" data-nav>Modulo</a>
+      <a href="#contact" data-nav>Contact</a>
+    </div>
+    <!-- Mobile Menu Toggle -->
+    <button class="nav-hamburger" id="navHamburger" aria-label="Toggle Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" class="mobile-menu-link">About</a>
+    <a href="#slique" class="mobile-menu-link">Slique</a>
+    <a href="#syncforce" class="mobile-menu-link">SyncForce</a>
+    <a href="#avospin" class="mobile-menu-link">AvoSpin</a>
+    <a href="#modulo" class="mobile-menu-link">Modulo</a>
+    <a href="#contact" class="mobile-menu-link">Contact</a>
+  </div>
+
+  <!-- ============ HERO ============ -->
+  <section id="hero">
+    <div class="hero-bg">
+      <div class="hero-bg-gradient g1"></div>
+      <div class="hero-bg-gradient g2"></div>
+      <div class="hero-bg-gradient g3"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-asterisk-badge">
+        <svg viewBox="0 0 200 200" width="24" height="24"><path fill="currentColor" d="M174 125C180 128 182 132 182 138C182 143 181 146 178 150C175 153 171 154 166 154C164 154 162 154 160 152L116 128V176C116 181 114 184 111 187C108 190 104 192 100 192C96 192 92 190 89 187C86 184 84 181 84 176V127L41 152C38 153 36 154 33 154C29 154 25 153 22 150C19 146 18 143 18 138C18 136 18 133 20 131C21 128 23 126 26 125L69 100L27 76C21 72 18 68 18 62C18 57 19 54 22 51C25 47 29 46 34 46C36 46 38 47 42 48L84 72V24C84 20 86 16 89 13C92 10 96 8 100 8C104 8 108 10 111 13C114 16 116 20 116 24V73L163 47C163 46 164 46 166 46C171 46 175 47 178 51C181 54 182 57 182 62C182 67 180 72 175 75L131 100L174 125Z"/></svg>
+        <span>Industrial Design Portfolio</span>
+        <svg viewBox="0 0 200 200" width="24" height="24"><path fill="currentColor" d="M174 125C180 128 182 132 182 138C182 143 181 146 178 150C175 153 171 154 166 154C164 154 162 154 160 152L116 128V176C116 181 114 184 111 187C108 190 104 192 100 192C96 192 92 190 89 187C86 184 84 181 84 176V127L41 152C38 153 36 154 33 154C29 154 25 153 22 150C19 146 18 143 18 138C18 136 18 133 20 131C21 128 23 126 26 125L69 100L27 76C21 72 18 68 18 62C18 57 19 54 22 51C25 47 29 46 34 46C36 46 38 47 42 48L84 72V24C84 20 86 16 89 13C92 10 96 8 100 8C104 8 108 10 111 13C114 16 116 20 116 24V73L163 47C163 46 164 46 166 46C171 46 175 47 178 51C181 54 182 57 182 62C182 67 180 72 175 75L131 100L174 125Z"/></svg>
+      </div>
+      <h1 class="hero-name" id="heroName">
+        <span class="hero-name-line">Ketaki</span><br />
+        <span class="hero-name-line">Khadilkar</span>
+      </h1>
+      <p class="hero-subtitle">Product Designer · MIT-WPU <span class="hero-year">2025–26</span></p>
+      <div class="hero-cta-row">
+        <a href="#slique" class="hero-cta-btn" id="heroCtaBtn">
+          <span>Explore Projects</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="scroll-indicator" id="scrollIndicator">
+      <span>Scroll</span>
+      <div class="scroll-indicator-line"></div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about">
+    <div class="about-container">
+      <div class="about-text-content">
+        <h2 class="about-heading">About Me</h2>
+        <p class="about-description">
+          I'm a final year Product Design student who enjoys finding opportunities in unfamiliar problems. I like building an understanding on how things work, experimenting through iterations and prototypes, exploring mechanisms and using visual communication to turn ideas into thoughtful products.
+        </p>
+
+        <!-- Workflow Diagram -->
+        <div class="about-workflow" id="aboutWorkflow">
+          <!-- Top Row -->
+          <div class="wf-item wf-observe">
+            <span>I Observe</span>
+          </div>
+          <div class="wf-arrow wf-arrow-right">
+            <svg viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0,5 L95,5 M90,0 L100,5 L90,10" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+          <div class="wf-item wf-question">
+            <span>I Question</span>
+          </div>
+          <div class="wf-arrow wf-arrow-right">
+            <svg viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0,5 L95,5 M90,0 L100,5 L90,10" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+          <div class="wf-item wf-build">
+            <span>I Build</span>
+          </div>
+          
+          <!-- Connectors (Desktop Grid) -->
+          <div class="wf-connector wf-conn-left">
+            <svg viewBox="0 0 50 100" preserveAspectRatio="none"><path d="M45,0 Q5,0 5,50 T45,100 M40,95 L48,100 L40,105" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+          <div class="wf-empty"></div>
+          <div class="wf-empty"></div>
+          <div class="wf-empty"></div>
+          <div class="wf-connector wf-conn-right">
+            <svg viewBox="0 0 50 100" preserveAspectRatio="none"><path d="M5,0 Q45,0 45,50 T5,100 M10,95 L2,100 L10,105" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+
+          <!-- Bottom Row -->
+          <div class="wf-item wf-repeat">
+            <span>And Repeat</span>
+          </div>
+          <div class="wf-arrow wf-arrow-left">
+            <svg viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M100,5 L5,5 M10,0 L0,5 L10,10" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+          <div class="wf-item wf-improve">
+            <span>I Improve</span>
+          </div>
+          <div class="wf-arrow wf-arrow-left">
+            <svg viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M100,5 L5,5 M10,0 L0,5 L10,10" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+          <div class="wf-item wf-test">
+            <span>I Test</span>
+          </div>
+        </div>
+
+        <!-- Details Table -->
+        <div class="about-details-table">
+          <div class="table-row">
+            <div class="table-label">Education</div>
+            <div class="table-value">B.Des. Product Design, MIT-WPU, 2023–2027</div>
+          </div>
+          <div class="table-row tools-row">
+            <div class="table-label">Tools</div>
+            <div class="table-value">
+              <div class="tool-subgrid">
+                <span class="tool-cat">CAD</span>
+                <span class="tool-list">SolidWorks, Fusion 360, AutoCAD, Rhino</span>
+                
+                <span class="tool-cat">Making</span>
+                <span class="tool-list">3D Printing, Laser Cutting, Rapid Prototypes & Mockups</span>
+                
+                <span class="tool-cat">Render</span>
+                <span class="tool-list">KeyShot, Blender</span>
+                
+                <span class="tool-cat">Graphic</span>
+                <span class="tool-list">Illustrator, Photoshop, Figma, InDesign</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Outside the Studio -->
+        <h3 class="outside-studio-heading">Outside the Studio</h3>
+        <div class="hobbies-grid" id="hobbiesGrid">
+          <div class="hobby-item">
+            <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="var(--accent-amber)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16l4-2h12l2 4M2 18h20M7 16v2M17 16v2M8 12c4 0 5-2 8-2l4 2"/></svg>
+            <span>F1 + LEGO</span>
+          </div>
+          <div class="hobby-item">
+            <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="var(--accent-amber)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="8" cy="10" r="1" fill="var(--accent-amber)"/><circle cx="12" cy="7" r="1" fill="var(--accent-amber)"/><circle cx="16" cy="10" r="1" fill="var(--accent-amber)"/><path d="M16 16s-1.5 2-4 2-4-2-4-2"/></svg>
+            <span>Painting, Illustrating and origami</span>
+          </div>
+          <div class="hobby-item">
+            <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="var(--accent-amber)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h-6zM12 2v20M9 9l-4 6M15 9l4 6M8 18h8"/></svg>
+            <span>State level badminton</span>
+          </div>
+          <div class="hobby-item">
+            <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="var(--accent-amber)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M6 5l12 14M5 6l14 12M3 8h4M17 22h4M2 5l3-3M22 19l-3 3M7 3l3 3M14 21l3-3"/></svg>
+            <span>Swimming and Gym</span>
+          </div>
+          <div class="hobby-item">
+            <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="var(--accent-amber)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a2 2 0 1 0 0 4 2 2 0 1 0 0-4zM8 10l4-2 4 2v4M9 21v-7l3-2 3 2v7"/></svg>
+            <span>Kathak, 3 Certifications</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image right side -->
+      <div class="about-image-wrapper">
+        <img src="WhatsApp Image 2026-10-10 at 10.14.54 AM.jpeg" alt="About Ketaki Khadilkar" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS MARQUEE ============ -->
+  <div class="projects-marquee" id="projectsMarquee">
+    <div class="marquee-track">
+      <span>SLIQUE</span><span class="marquee-dot">✳</span>
+      <span>SYNCFORCE</span><span class="marquee-dot">✳</span>
+      <span>AVOSPIN</span><span class="marquee-dot">✳</span>
+      <span>MODULO</span><span class="marquee-dot">✳</span>
+      <span>SLIQUE</span><span class="marquee-dot">✳</span>
+      <span>SYNCFORCE</span><span class="marquee-dot">✳</span>
+      <span>AVOSPIN</span><span class="marquee-dot">✳</span>
+      <span>MODULO</span><span class="marquee-dot">✳</span>
+    </div>
+  </div>
+
+  <!-- ============ SLIQUE — TOASTER SECTION ============ -->
+  <section id="slique" class="project-section project-slique">
+    <div class="project-reveal-header">
+      <span class="project-num">01</span>
+      <div class="project-num-line"></div>
+      <span class="project-cat">Product Design</span>
+    </div>
+    
+    <div class="slique-hero-wrapper">
+      <!-- Animated toaster heat wave background -->
+      <div class="slique-heat-bg" id="sliqueHeatBg"></div>
+      
+      <div class="slique-title-block">
+        <h2 class="project-mega-title slique-color">SLIQUE</h2>
+        <p class="project-mega-sub">5-Slot Bread Toaster · 4 Months · Individual Project</p>
+      </div>
+    </div>
+
+    <!-- Toaster Toast-Pop Machine -->
+    <div class="toaster-scene">
+      <div class="toaster-machine">
+        <div class="toaster-slots-row">
+          <!-- Slot 1 -->
+          <div class="toaster-slot-unit">
+            <div class="toast-card" data-toast="1">
+              <div class="toast-card-image">
+                <img src="assets/images/slique_research.png" alt="SLIQUE Research" loading="lazy" />
+              </div>
+              <div class="toast-card-content">
+                <span class="toast-card-label">Phase 01</span>
+                <h3 class="toast-card-title">Design for All — User Research</h3>
+              </div>
+            </div>
+            <div class="slot-glow"></div>
+            <div class="toaster-slot-opening"></div>
+          </div>
+
+          <!-- Slot 2 -->
+          <div class="toaster-slot-unit">
+            <div class="toast-card" data-toast="2">
+              <div class="toast-card-image">
+                <img src="assets/images/slique_making.png" alt="SLIQUE Manufacturing" loading="lazy" />
+              </div>
+              <div class="toast-card-content">
+                <span class="toast-card-label">Phase 02</span>
+                <h3 class="toast-card-title">From CAD to Tangible Product</h3>
+              </div>
+            </div>
+            <div class="slot-glow"></div>
+            <div class="toaster-slot-opening"></div>
+          </div>
+
+          <!-- Slot 3 -->
+          <div class="toaster-slot-unit">
+            <div class="toast-card" data-toast="3">
+              <div class="toast-card-image">
+                <img src="assets/images/slique_prototype.png" alt="SLIQUE Prototype" loading="lazy" />
+              </div>
+              <div class="toast-card-content">
+                <span class="toast-card-label">Phase 03</span>
+                <h3 class="toast-card-title">Prototyping — 5 Toasting Slots</h3>
+              </div>
+            </div>
+            <div class="slot-glow"></div>
+            <div class="toaster-slot-opening"></div>
+          </div>
+
+          <!-- Slot 4 -->
+          <div class="toaster-slot-unit">
+            <div class="toast-card" data-toast="4">
+              <div class="toast-card-image">
+                <img src="assets/images/slique_detail.png" alt="SLIQUE Details" loading="lazy" />
+              </div>
+              <div class="toast-card-content">
+                <span class="toast-card-label">Phase 04</span>
+                <h3 class="toast-card-title">Product Detailing & Features</h3>
+              </div>
+            </div>
+            <div class="slot-glow"></div>
+            <div class="toaster-slot-opening"></div>
+          </div>
+
+          <!-- Slot 5 -->
+          <div class="toaster-slot-unit">
+            <div class="toast-card" data-toast="5">
+              <div class="toast-card-image">
+                <img src="assets/images/slique_final.png" alt="SLIQUE Final" loading="lazy" />
+              </div>
+              <div class="toast-card-content">
+                <span class="toast-card-label">Phase 05</span>
+                <h3 class="toast-card-title">Final Design & Renders</h3>
+              </div>
+            </div>
+            <div class="slot-glow"></div>
+            <div class="toaster-slot-opening"></div>
+          </div>
+        </div>
+
+        <!-- Toaster Body -->
+        <div class="toaster-base">
+          <div class="toaster-knob"></div>
+          <span class="toaster-label-text">SLIQUE — Designed by Ketaki</span>
+          <div class="toaster-knob"></div>
+          <div class="toaster-lever"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slique Context Cards -->
+    <div class="slique-context">
+      <div class="context-card">
+        <div class="context-icon">🍞</div>
+        <h4>Consistent Browning</h4>
+        <p>Advanced heating components with visual indication for perfect toasting every time.</p>
+      </div>
+      <div class="context-card">
+        <div class="context-icon">⚙️</div>
+        <h4>20+ Mechanical Parts</h4>
+        <p>Precision engineered with laser cutting, hand press bending, and CO2 spot welding.</p>
+      </div>
+      <div class="context-card">
+        <div class="context-icon">🧹</div>
+        <h4>Easy Maintenance</h4>
+        <p>Individual functioning levers and removable crumb tray for effortless cleaning.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SYNCFORCE — FIREFIGHTER SECTION ============ -->
+  <section id="syncforce" class="project-section project-syncforce">
+    <div class="project-reveal-header">
+      <span class="project-num">02</span>
+      <div class="project-num-line"></div>
+      <span class="project-cat">For The Society</span>
+    </div>
+
+    <!-- Emergency Siren Animation Hero -->
+    <div class="syncforce-hero">
+      <div class="siren-pulse" id="sirenPulse"></div>
+      <div class="siren-pulse delay" id="sirenPulse2"></div>
+      <h2 class="project-mega-title syncforce-color">SYNCFORCE</h2>
+      <p class="project-mega-sub">Multi-Functional Firefighter Rescue Tool</p>
+      <div class="project-meta-pills">
+        <span class="meta-pill">4 Months</span>
+        <span class="meta-pill">Individual Project</span>
+        <span class="meta-pill">Product Design Studio</span>
+      </div>
+    </div>
+
+    <!-- Horizontal Scroll Gallery -->
+    <div class="horizontal-scroll-wrapper">
+      <div class="horizontal-scroll-track" id="syncforceTrack">
+        <div class="h-scroll-card">
+          <img src="assets/images/syncforce_cover.png" alt="SyncForce Overview" loading="lazy" />
+          <div class="h-scroll-card-content">
+            <h3>The Challenge</h3>
+            <p>Firefighters face high-pressure rescue scenarios with tools that are singular in function, leading to equipment overload and chaos within rescue trucks. SyncForce addresses this with a modular, multi-functional approach.</p>
+          </div>
+        </div>
+        <div class="h-scroll-card">
+          <img src="assets/images/syncforce_research.png" alt="SyncForce Research" loading="lazy" />
+          <div class="h-scroll-card-content">
+            <h3>Research & Insights</h3>
+            <p>Extensive field research with firefighters revealed the need for faster operation, reduced fatigue, effective emergency response, and modular tool design that can adapt to different rescue scenarios.</p>
+          </div>
+        </div>
+        <div class="h-scroll-card">
+          <img src="assets/images/syncforce_tool.png" alt="SyncForce Tool Design" loading="lazy" />
+          <div class="h-scroll-card-content">
+            <h3>Combination Tool Design</h3>
+            <p>A combination cutting-extinguisher tool with Storz couplings, replaceable nozzles (abrasive & foam), support handles, and individual water/abrasive inlet pipes. Built with stainless steel, naval brass, and tungsten carbide.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SyncForce Specs -->
+    <div class="syncforce-specs">
+      <div class="spec-block">
+        <div class="spec-number">300</div>
+        <div class="spec-unit">bar</div>
+        <div class="spec-detail">Water Pressure</div>
+      </div>
+      <div class="spec-block">
+        <div class="spec-number">2</div>
+        <div class="spec-unit">modes</div>
+        <div class="spec-detail">Abrasive & Foam</div>
+      </div>
+      <div class="spec-block">
+        <div class="spec-number">5</div>
+        <div class="spec-unit">materials</div>
+        <div class="spec-detail">SS, Brass, Tungsten</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AVOSPIN — ROTATING SHOWCASE ============ -->
+  <section id="avospin" class="project-section project-avospin">
+    <div class="project-reveal-header">
+      <span class="project-num">03</span>
+      <div class="project-num-line"></div>
+      <span class="project-cat">Health & Wellness</span>
+    </div>
+
+    <!-- AvoSpin Hero with rotating avocado -->
+    <div class="avospin-hero">
+      <div class="avo-orbit" id="avoOrbit">
+        <div class="avo-ring ring-1"></div>
+        <div class="avo-ring ring-2"></div>
+        <div class="avo-ring ring-3"></div>
+      </div>
+      <h2 class="project-mega-title avospin-color">AVOSPIN</h2>
+      <p class="project-mega-sub">Avocado-Shaped Sensory Fidget Toy</p>
+      <div class="project-meta-pills">
+        <span class="meta-pill avo-pill">2 Months</span>
+        <span class="meta-pill avo-pill">Individual Project</span>
+        <span class="meta-pill avo-pill">Elective</span>
+      </div>
+    </div>
+
+    <!-- Showcase Section with Spinner -->
+    <div class="avospin-showcase">
+      <div class="avospin-spinner" id="avospinSpinner">
+        <img src="assets/images/avospin_detail.png" alt="AvoSpin Detail" loading="lazy" />
+      </div>
+      <div class="avospin-features">
+        <div class="avospin-feature">
+          <h4>Planetary Gear System</h4>
+          <p>Multiple gears rotate together in a compact configuration, providing satisfying motion and tactile feedback for stress relief.</p>
+        </div>
+        <div class="avospin-feature">
+          <h4>Ergonomic Form</h4>
+          <p>Teardrop/oval avocado shape is naturally curvy and textured — fits comfortably in the palm of a hand.</p>
+        </div>
+        <div class="avospin-feature">
+          <h4>Cultural Symbol</h4>
+          <p>A powerful cultural symbol deeply embedded in the teenage and young adult aesthetic, making it appealing as a lifestyle accessory.</p>
+        </div>
+        <div class="avospin-feature">
+          <h4>Precision Components</h4>
+          <p>Sun gear, planetary gears, rack, main body, and ball bearings — all working in harmony for smooth operation.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gallery -->
+    <div class="project-gallery">
+      <div class="gallery-grid two-col">
+        <div class="gallery-item">
+          <img src="assets/images/avospin_concept.png" alt="AvoSpin Concept" loading="lazy" />
+          <div class="gallery-item-overlay">
+            <h4>Concept Development</h4>
+            <p>From avocado inspiration to functional gear toy</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/images/avospin_prototype.png" alt="AvoSpin Prototype" loading="lazy" />
+          <div class="gallery-item-overlay">
+            <h4>Prototyping</h4>
+            <p>3D printed prototype with functional gear mechanism</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MODULO — ASSEMBLY ANIMATION ============ -->
+  <section id="modulo" class="project-section project-modulo">
+    <div class="project-reveal-header">
+      <span class="project-num">04</span>
+      <div class="project-num-line"></div>
+      <span class="project-cat">Furniture Design</span>
+    </div>
+
+    <!-- Modulo Hero with blueprint grid -->
+    <div class="modulo-hero">
+      <div class="blueprint-grid" id="blueprintGrid"></div>
+      <h2 class="project-mega-title modulo-color">MODULO</h2>
+      <p class="project-mega-sub">Flatpack Living Room Furniture</p>
+      <div class="project-meta-pills">
+        <span class="meta-pill modulo-pill">4 Months</span>
+        <span class="meta-pill modulo-pill">Individual Project</span>
+        <span class="meta-pill modulo-pill">Product Design Studio</span>
+      </div>
+    </div>
+
+    <!-- Assembly Showcase -->
+    <div class="modulo-assembly">
+      <div class="modulo-visual">
+        <div class="modulo-parts">
+          <div class="modulo-part" id="moduloPart1">
+            <img src="assets/images/modulo_what.png" alt="Modulo Design" loading="lazy" />
+          </div>
+          <div class="modulo-part" id="moduloPart2">
+            <img src="assets/images/modulo_context.png" alt="Modulo Context" loading="lazy" />
+          </div>
+          <div class="modulo-part" id="moduloPart3">
+            <img src="assets/images/modulo_sketch.png" alt="Modulo Sketch" loading="lazy" />
+          </div>
+        </div>
+      </div>
+      <div class="modulo-info">
+        <h3>What is Modulo?</h3>
+        <p>A flat pack living room furniture, easy to assemble with only 4 components joined by simple screwing-based joinery. Designed for contemporary home environments with a focus on structural integrity and modern aesthetics.</p>
+        <div class="modulo-specs">
+          <div class="modulo-spec">
+            <div class="spec-label">Components</div>
+            <div class="spec-value">Only 4 Parts</div>
+          </div>
+          <div class="modulo-spec">
+            <div class="spec-label">Assembly</div>
+            <div class="spec-value">No Special Tools</div>
+          </div>
+          <div class="modulo-spec">
+            <div class="spec-label">Packaging</div>
+            <div class="spec-value">Flatpack Optimized</div>
+          </div>
+          <div class="modulo-spec">
+            <div class="spec-label">Joinery</div>
+            <div class="spec-value">Screw-Based System</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT / FOOTER ============ -->
+  <section id="contact">
+    <div class="contact-asterisk">
+      <svg viewBox="0 0 200 200"><path fill="currentColor" d="M174 125C180 128 182 132 182 138C182 143 181 146 178 150C175 153 171 154 166 154C164 154 162 154 160 152L116 128V176C116 181 114 184 111 187C108 190 104 192 100 192C96 192 92 190 89 187C86 184 84 181 84 176V127L41 152C38 153 36 154 33 154C29 154 25 153 22 150C19 146 18 143 18 138C18 136 18 133 20 131C21 128 23 126 26 125L69 100L27 76C21 72 18 68 18 62C18 57 19 54 22 51C25 47 29 46 34 46C36 46 38 47 42 48L84 72V24C84 20 86 16 89 13C92 10 96 8 100 8C104 8 108 10 111 13C114 16 116 20 116 24V73L163 47C163 46 164 46 166 46C171 46 175 47 178 51C181 54 182 57 182 62C182 67 180 72 175 75L131 100L174 125Z"/></svg>
+    </div>
+    <p class="contact-label">Get In Touch</p>
+    <h2 class="contact-heading">Let's Create<br />Something Together</h2>
+    <p class="contact-subtext">
+      Currently looking for opportunities in product and industrial design. 
+      Feel free to reach out for collaborations or just a friendly chat!
+    </p>
+
+    <div class="contact-links">
+      <a href="mailto:ketaki29khadilkar@gmail.com" class="contact-link" id="contactEmail">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        ketaki29khadilkar@gmail.com
+      </a>
+      <a href="tel:+918484864857" class="contact-link" id="contactPhone">
+        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        +91 8484864857
+      </a>
+      <a href="https://www.linkedin.com/in/ketaki-khadilkar-2568752a1" target="_blank" class="contact-link" id="contactLinkedin">
+        <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+        LinkedIn
+      </a>
+      <a href="https://instagram.com/ketakidraws" target="_blank" class="contact-link" id="contactInsta">
+        <svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+        @ketakidraws
+      </a>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2025 Ketaki Khadilkar. Designed with passion.</p>
+      <a class="back-to-top" id="backToTop">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+        Back to Top
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== SCRIPTS ===== -->
+  <!-- GSAP Core + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <!-- Main Script -->
+  <script src="main.js"></script>
+</body>
+</html>

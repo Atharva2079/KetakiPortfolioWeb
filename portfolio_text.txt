@@ -1,0 +1,343 @@
+﻿Total pages: 31
+=== PAGE 1 ===
+PORTFOLIO
+Industrial Design
+25
+26
+
+=== PAGE 2 ===
+Hello Everybody!
+Here are a few things you should know about me:
+Ketaki Khadilkar, 20
+I╦çm m a Third year Product Design student at MIT-WPU. I love 
+interacting with new people and my current interests include 
+studying products which includes complex mechanisms and 
+finding innovative solutions to improve product functionality 
+and improvise on ease of use. 
+@ketakidraws
+https://www.linkedin.com/in/ketaki-
+khadilkar-2568752a1
++91-8484864857
+ketaki29khadilkar@gmail.com
+
+=== PAGE 3 ===
+EDUCATION
+2009 -2021 
+SPM English School, Pune
+2021 -2023 (HSC, PCM.)
+S.P college, Pune
+2023-2027 
+(B.Des, PD/ID) MIT-WPU 
+SKILLS
+PRODUCT 
+GRAPHIC
+Solidworks
+Fusion
+AutoCad
+Rhino
+Keyshot
+Figma
+Illustrator
+Photoshop
+Lightroom
+Canva
+EXPERIENCE 
+INTERESTS
+Vegapod Hyperloop: Technical & 
+Media Team
+Cosmos Club: Design & Media Team
+E Summit Design Team
+Project Lead: Echo Bloom, Harit Setu
+Volunteer: DevConf 2025 (Red Hat)
+Playing Sports
+Crafting and Painting
+Graphic Design
+Stitching and Knitting
+Playing LEGO
+Watching F1
+CERTIFICATES
+Teamwork and Collaboration  
+Measuring Sustainable 
+Development
+Critical Thinking and 
+Problem Solving
+SOFT 
+Technical Design
+Material Knowledge
+Problem Solving 
+Concept Visualisation
+Prototyping and Sculpting
+
+=== PAGE 4 ===
+SLIQUE
+Project Duration: 4 months
+Type: Product design studio project
+Team: Individual Project
+
+=== PAGE 5 ===
+Design for All
+Design for All
+Efficiency outweighs the morning crunch?
+(High-pressure reality of the start of the day.)
+╦¥Being a programmer, I prefer not to get my hands 
+buttery or sticky at all. So I'd rather not eat excluding 
+lunch breaks.╦¢ (Sourabh, 42)
+╦¥I have never used a toaster, I╦çve 
+thought about using it while going 
+to the office.╦¢ (Atharva, 26)
+╦¥Yes, I do often use a toaster 
+as it helps me when I have no 
+time for cooking whole meal..╦¢ 
+(Supriya, 29)
+
+=== PAGE 6 ===
+Ideation
+Consistent browning components 
+with compact body and sturdy 
+built
+Easier cleaning with visual 
+indication components
+Multiple toasting slots with 
+individual functioning
+
+=== PAGE 7 ===
+How it╦çs s made?
+From CAD to 
+Tangible Product
+20+ Mechanical  
+Components 
+Heating and 
+insulation elements
+Electronic 
+components 
+Laser 
+cutting
+Grinding and finishing
+Hand press 
+bending
+CO2 Spot Welding
+
+=== PAGE 8 ===
+Prototyping 
+5 slots for 
+bread toasting
+Component List:
+Main body: Stainless steel
+Lever: ABS plastic
+Control Knob: Plastic
+Crumb tray: Stainless steel
+2- dual 
+functioning slots, 
+1- individual 
+functioning slot
+Inner body: Stainless steel
+Lever control rod: Stainless 
+steel
+Spring:
+Heating element: Nichrome 
+wire
+Insulation material: Mica 
+sheet
+Individual functioning 
+levers and crumb tray
+
+=== PAGE 9 ===
+Product Detailing
+
+=== PAGE 11 ===
+SyncForce
+Project Duration: 4 months
+Type: Product design studio project
+Team: Individual Project
+
+=== PAGE 12 ===
+For The Society
+╦¥For calls in any other branch, 
+there is no special equipment to 
+carry out faster rescue in car 
+accidents╦¢ 
+Precision in limited time span
+(High-pressure reality of Fire Fighters and Rescue Team.)
+╦¥Equipment provided to firefighters are simple and often 
+have a very niche, and singular role. Because of this, the 
+amount of equipment needed is very large╦¢
+╦¥Firetrucks and rescue trucks are 
+highly equipped with specialized 
+tools, but this variety leads to in-
+organization and chaos within the 
+truck.╦¢
+
+=== PAGE 13 ===
+Ideation
+Effective Response
+Faster operation
+Reduced Fatigue
+Modular
+
+=== PAGE 14 ===
+Market Research
+C 360 H Kit
+The┬áC 360 H┬áKit is a cutting 
+extinguisher system specifically 
+engineered for vehicle-based 
+installation in larger fire engines. 
+The kit includes all essential 
+components up to the hand lance.
+Uses truck engine as a Power 
+Source
+Requires hydraulic Power and 
+Water Supply from vehicle
+
+=== PAGE 15 ===
+Combination tool
+Storz Coupling
+Support handles
+Individual water 
+and Abrasive/ 
+Foam inlet pipes
+Individual couplings for 
+water inlet (300 bar 
+pressure) and Abrasive/ 
+Foam inlet
+Replaceable nozzles 
+(Abrasive nozzle and 
+Foam nozzle) 
+Outer Body
+
+=== PAGE 16 ===
+Tool Breakdown 
+Water 
+outlet pipe
+Water inlet 
+pipe
+Storz coupling 
+(Does not contain 
+male and female 
+joinery for easier 
+assembly)
+Mixture of 
+Abrasive and 
+Water/ Mixture of 
+Foam and Water
+Abrasive/ Foam based 
+Inlet Pipe
+Brass Storz 
+Coupling 
+Brass Storz 
+Coupling 
+Foam 
+Based 
+Nozzle
+Abrasive  Based 
+Nozzle
+
+=== PAGE 17 ===
+Main Outer Body: Stainless steel
+Water Pipe: Naval Brass 
+Abrasive Pipe: Tungsten Carbide 
+Handles: Stainless steel with rubber grip
+Abrasive Nozzle: Naval Brass
+Abrasive Force
+
+=== PAGE 18 ===
+Foam Extinguisher 
+Main Outer Body: Stainless steel
+Water Pipe: Naval Brass 
+Foam pipe: Tungsten Carbide 
+Handles: Stainless steel with rubber grip
+Foam Nozzle: Naval Brass
+
+=== PAGE 19 ===
+AvoSpin
+Project Duration: 2 months
+Type: Elective
+Team: Individual Project
+
+=== PAGE 20 ===
+Health Factor
+Dealing with mental health as a teen
+A fidget toy is a small handheld 
+object that helps calm the mind, 
+improve focus, and relieve stress
+It is used for managing 
+anxiety and stress
+It is often helpful for managing anxiety and 
+stress, and serves as a self-soothing tool 
+during challenging or boring situations.
+
+=== PAGE 21 ===
+What is AvoSpin?
+Teardrop/ oval shape is 
+naturally curvy and 
+textured
+A powerful cultural symbol 
+deeply embedded in the 
+teenage and young adult 
+aesthetic.
+AvoSpin is a portable sensory 
+accessory designed for teens 
+seeking focus and stress relief
+Functional planetary gear 
+system multiple gears rotate 
+together in a compact 
+configuration, providing 
+satisfying motion and tactile 
+feedback.
+Fits comfortably 
+in the palm of a 
+hand
+Components:
+Sun gear
+Planetary gear
+Rack
+Main body
+Ball bearings
+
+=== PAGE 22 ===
+Gear Rotation 
+Track
+Interactive Cap 
+Sun Gear
+Planetary Gear
+Key chain Ring 
+Holder
+
+=== PAGE 23 ===
+Prototyping 
+Easy to interact and 
+compact design
+Smooth gear 
+operation based on 
+ball bearings
+
+=== PAGE 24 ===
+Modulo 
+Project Duration: 4 months
+Type: Product design studio project
+Team: Individual Project
+
+=== PAGE 25 ===
+Context
+To design a household chair that uses a durable joinery 
+system for easy assembly and disassembly without 
+specialized tools. The chair must be optimized for 
+flatpack packaging to minimize shipping volume and 
+storage space. It should combine functionality, structural 
+integrity, and modern aesthetics, making it suitable for 
+efficient mass production and should be appealing for 
+contemporary home environments.
+
+=== PAGE 26 ===
+Ideation
+Effective Response
+Faster operation
+Reduced Fatigue
+
+=== PAGE 27 ===
+What is Modulo?
+A flat pack living room furniture, easy to assemble with only 
+4 components joined by simple screwing based joinery
+
+=== PAGE 28 ===
+Sketching
+
