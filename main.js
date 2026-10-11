@@ -530,70 +530,101 @@ function initProjectHeaders() {
 
 // ===== 01. SLIQUE (TOASTER) ANIMATIONS =====
 function initSliqueAnimations() {
-  // Title & Hero elements entrance
-  gsap.from('#slique .project-eyebrow, #slique .project-mega-title, #slique .project-mega-sub, #slique .project-meta-pills', {
-    y: 20,
-    opacity: 0.6,
-    duration: 0.8,
-    stagger: 0.1,
-    ease: 'power2.out',
+  // Heat background glow
+  gsap.to('.slique-heat-bg', {
+    opacity: 1,
     scrollTrigger: {
       trigger: '.slique-hero-wrapper',
-      start: 'top 80%',
-      toggleActions: 'play none none none',
+      start: 'top 60%',
+      end: 'bottom top',
+      scrub: 1,
     },
   });
 
+  // Title
+  gsap.to('#slique .project-mega-title', {
+    opacity: 1,
+    duration: 1,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '.slique-hero-wrapper',
+      start: 'top 55%',
+      toggleActions: 'play none none reverse',
+    },
+  });
+
+  gsap.to('#slique .project-mega-sub', {
+    opacity: 1,
+    duration: 0.8,
+    ease: 'power2.out',
+    scrollTrigger: {
+      trigger: '.slique-hero-wrapper',
+      start: 'top 50%',
+      toggleActions: 'play none none reverse',
+    },
+  });
+
+  // Toaster scene — pinned scroll animation (cards pop up 1 by 1 across 5 scrolls)
+  const toasterTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: '.toaster-scene',
+      start: 'top top',
+      end: '+=300%',
+      pin: true,
+      scrub: 1,
+      anticipatePin: 1,
+      invalidateOnRefresh: true,
+    },
+  });
+
+  // Toaster base reveal
+  toasterTl.to('.toaster-base', {
+    opacity: 1,
+    duration: 0.5,
+    ease: 'power2.out',
+  });
+
+  // Slot openings
+  toasterTl.to('.toaster-slot-opening', {
+    opacity: 1,
+    duration: 0.3,
+    stagger: 0.08,
+    ease: 'power2.out',
+  }, '-=0.2');
+
+  // Toast cards POP UP one by one with spring physics
   const toastCards = document.querySelectorAll('.toast-card');
   const slotGlows = document.querySelectorAll('.slot-glow');
   const sliqueLever = document.getElementById('sliqueLever');
 
-  // Initial state: Cards are lowered inside slots (visible top lip)
-  // NEVER opacity: 0 so cards are always visible on Vercel
-  gsap.set(toastCards, { y: 65 });
-  gsap.set(slotGlows, { opacity: 0.2 });
-
-  // ScrollTrigger: Automatically triggers the toaster pop as user reaches toaster
-  const toasterTl = gsap.timeline({
-    scrollTrigger: {
-      trigger: '.toaster-scene',
-      start: 'top 78%',
-      toggleActions: 'play none none none',
-    },
-  });
-
-  // Step 1: Lever pushes down into toasting position
-  if (sliqueLever) {
-    toasterTl.to(sliqueLever, { y: 24, duration: 0.25, ease: 'power2.in' });
-  }
-
-  // Step 2: Heating elements ignite with intense radiant amber glow
-  toasterTl.to(slotGlows, {
-    opacity: 0.95,
-    duration: 0.3,
-    stagger: 0.05,
-    ease: 'power1.in',
-  }, '-=0.1');
-
-  // Step 3: Lever releases with mechanical spring
-  if (sliqueLever) {
-    toasterTl.to(sliqueLever, { y: 0, duration: 0.35, ease: 'back.out(2)' });
-  }
-
-  // Step 4: Toast cards POP UP one by one with spring physics!
   toastCards.forEach((card, index) => {
+    const offset = index === 0 ? '+=0.1' : '+=0.05';
+
+    // Glow first
+    toasterTl.to(slotGlows[index], {
+      opacity: 0.85,
+      duration: 0.2,
+      ease: 'power2.in',
+    }, offset);
+
+    // Card pops with spring
     toasterTl.to(card, {
       y: 0,
-      duration: 0.65,
-      ease: 'back.out(2.4)',
-    }, index === 0 ? '-=0.15' : '+=0.05');
+      opacity: 1,
+      duration: 0.6,
+      ease: 'back.out(2.5)',
+    }, '-=0.1');
 
+    // Glow settles
     toasterTl.to(slotGlows[index], {
-      opacity: 0.45,
+      opacity: 0.4,
       duration: 0.3,
       ease: 'power2.out',
     }, '-=0.3');
   });
+
+  // Hold briefly so user can inspect all 5 cards
+  toasterTl.to({}, { duration: 0.5 });
 
   // Interactive Click on Toaster Lever: Toast again!
   if (sliqueLever) {
@@ -601,10 +632,10 @@ function initSliqueAnimations() {
       const popTl = gsap.timeline();
       popTl.to(sliqueLever, { y: 24, duration: 0.2, ease: 'power2.in' })
            .to(slotGlows, { opacity: 1, duration: 0.2, stagger: 0.03 }, '<')
-           .to(toastCards, { y: 60, duration: 0.2, stagger: 0.03, ease: 'power2.in' }, '<')
+           .to(toastCards, { y: 65, duration: 0.2, stagger: 0.03, ease: 'power2.in' }, '<')
            .to(sliqueLever, { y: 0, duration: 0.4, ease: 'elastic.out(1, 0.4)', delay: 0.2 })
            .to(toastCards, { y: 0, duration: 0.55, stagger: 0.06, ease: 'back.out(2.4)' }, '<')
-           .to(slotGlows, { opacity: 0.45, duration: 0.35 }, '-=0.25');
+           .to(slotGlows, { opacity: 0.4, duration: 0.35 }, '-=0.25');
     });
   }
 
@@ -619,7 +650,7 @@ function initSliqueAnimations() {
     card.addEventListener('mouseleave', () => {
       gsap.to(card, { y: 0, duration: 0.35, ease: 'back.out(1.8)', overwrite: 'auto' });
       if (slotGlows[index]) {
-        gsap.to(slotGlows[index], { opacity: 0.45, duration: 0.3 });
+        gsap.to(slotGlows[index], { opacity: 0.4, duration: 0.3 });
       }
     });
   });
