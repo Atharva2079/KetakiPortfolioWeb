@@ -1,0 +1,305 @@
+Total pages: 22
+
+=== PAGE 1 ===
+PORTFOLIO
+Ketaki Khadilkar
+Industrial Design
+B.Des, MIT-WPU, 2023- 2027
+
+=== PAGE 2 ===
+About Me
+Iˇm m a final year Product Design student who enjoys finding opportunities in unfamiliar 
+problems. I like building an understanding on how things work, experimenting through 
+iterations and prototypes, exploring mechanisms and using visual communication to turn 
+ideas into thoughtful products.
+I Observe 
+And Repeat
+I Question 
+I Improve
+I Build
+I Test
+Education
+B.Des. Product Design, MIT-WPU, 2023 2027
+CAD
+SolidWorks, Fusion 360, AutoCAD, Rhino
+Tools 
+Making
+3D Printing, Laser Cutting, Rapid Prototypes & Mockups
+Render
+KeyShot, Blender
+Graphic
+Illustrator, Photoshop, Figma, InDesign
+Outside the Studio
+State level 
+badminton
+Swimming 
+and Gym
+Kathak, 3 
+Certifications 
+Painting, 
+Illustrating and 
+origami
+F1  + LEGO
+
+=== PAGE 3 ===
+Work
+01
+SLIQUE
+Toaster
+04
+ACTICOMPRESS
+Compression wearable
+02
+SYNCFORCE
+EV rescue tool
+05
+OUTSIDE STUDIO
+Hobbies and interests
+03
+AVOSPIN
+Fidget toy
+06
+OTHER EXPLORATION
+Project work
+
+=== PAGE 4 ===
+SLIQUE
+A multi-slot toaster for different morning routines
+Compact Multi slot Toaster 
+Steel outer body, Mica insulation and Nichrome heating 
+Individual lever operating sections
+
+=== PAGE 5 ===
+Why SLIQUE toaster
+Rushed mornings create a need for low effort meals hence breakfast routines change. Some users need only a 
+single slice, while others prepare several at once. This created an opportunity to rethink the toaster around 
+flexibility, cleanliness and individual control in shared living and office environments .
+Users POV
+˝I don't like getting my hands buttery or sticky, especially when 
+I'm in a rush. I'd rather skip eating than deal with the mess.˛ 
+(Sourabh, 42)
+˝I often use a toaster when I don't have time to prepare a full 
+meal. It makes breakfast much quicker.˛ (Supriya, 29)
+Pain points
+A compact, 
+sturdy form 
+suited to 
+everyday use
+Toasting one or 
+many slices 
+without waiting
+Quick, intuitive 
+interaction with 
+minimal effort
+Different toast 
+settings at the 
+same time 
+Cleaner way 
+to make 
+breakfast
+
+=== PAGE 6 ===
+Sketching the form and the mechanisms
+Initial concept features: Compact, sturdy built, simultaneous toasting, easy to clean and smooth sliding crumb tray. 
+Explored the form first, then how the mechanisms would work inside it.
+Heating structure
+Slot Control
+Sliding crumb tray mechanism
+
+=== PAGE 7 ===
+Drawing it and then building it
+Form iterations component placement explorations 
+Dimensional drawings:  Internal and final assembly
+Hand press 
+bending
+CO2 Spot 
+Welding
+Grinding 
+and finishing
+Laser 
+cutting
+Building it in stainless steel
+
+=== PAGE 8 ===
+Final Details
+Stainless 
+steel body
+5 slots: two paired slot 
+systems and one single slot
+3 levers with 
+control rod 
+and spring 
+mechanisms
+Dedicated crumb tray
+1:1 prototype: powder-coated outer body over a 
+stainless steel, mica and nichrome heating assembly.
+
+=== PAGE 9 ===
+All Keyshot Renders
+
+=== PAGE 10 ===
+SYNCFORCE
+A modular rescue tool for EV fires
+Foam extinguishing (water+ foam)
+Abrasive cutting (water+ abrasive)
+
+=== PAGE 11 ===
+Why SyncForce tool
+Firetrucks and rescue trucks are highly equipped with specialized tools, but this variety leads to 
+organization issues and chaos within the truck while managing the EV rescue operations.
+C 360 H Kit by Coldcut Cobra
+Existing System Studied:
+On site observation study: Visit to 6 fire stations across 
+Pune including the Pune headquarter 
+
+=== PAGE 12 ===
+Connect
+Attach the nozzle for 
+foam or abrasive use
+Modular rescue tool for EV fire emergencies that combines functions like 
+fire extinguishing and abrasive cutting with interchangeable nozzles.
+Lock
+Secure it with the Storz 
+coupling based on preference
+Operate
+Direct the medium 
+through the nozzle
+
+=== PAGE 13 ===
+Final Prototype
+Coupling
+Handle
+1:1 scale prototype for the tool
+Abrasive Force
+Water+ Abrasive material
+1:1 Abrasive nozzle 3D print
+Extinguisher 
+Water+ Foam material
+1:1 Foam nozzle 3D print
+Stainless Steel (Main outer body)
+Naval Brass (Water pipe, coupling, nozzle)
+Tungsten Carbide (Abrasive and Foam pipe)
+Stainless steel+ Rubber (Handles) 
+
+=== PAGE 14 ===
+AVOSPIN
+Fidget Toy Design
+Mechanism Understanding
+Interaction Study
+3D printed Prototype 
+Renders
+
+=== PAGE 15 ===
+Mechanism, 3D CAD & Renders
+Cap for thumb 
+interaction
+Sun 
+Gear
+Planetary 
+Gear
+Motion graphic 
+renders
+Track
+Main 
+Body
+Exploded view for understanding the 
+components of the toy design 
+AvoSpin: sensory 
+fidget toy for teenagers 
+seeking focus and 
+stress relief 
+Keyshot renders
+
+=== PAGE 16 ===
+1
+2
+3
+A
+B
+C
+4
+5
+6
+1:1 Scale three body builds: separated rack track, integrated 
+track, ball bearing integration (order A to C)
+1:1 Scale six gear builds (iteration order 1 to 6)
+Final 1:1 Scale Fully Functional, 3D printed prototype for the Fidget toy (Built, tested and rebuilt in 5 days)
+
+=== PAGE 17 ===
+ANATOMECH
+Smart healthcare compression wearables  
+Static products 
+development
+Brand and Visual 
+communication
+End to end product 
+development 
+DFMA for 
+Acticompress
+ Mobile and Web UI digital 
+product: Acticompress
+*Production and Manufacturing level process work and documentation not displayed due to NDA*
+
+=== PAGE 18 ===
+Market Research
+Competitors + existing tech + therapy 
+research + literature review
+User Research
+10 interviews (patients, specialists) + observations 
++ expert opinion + USP documentation
+Mind Map and Mood board 
+Brainstorming + feature identification + concept 
+ranking + technology and mechanism study
+Ideations and Mechanisms explorations 
+4 concept cycles + segmentation + donning and doffing + 
+dimensioned drawings + cloth tolerances
+1:1 scale Paper Mockup and Prototyping
+
+=== PAGE 19 ===
+Testing 
+Pressure testing report + functionality and 
+component testing
+CMF for sleeve, encasing and packaging design (health and sports) 
+Mobile and Web UI
+Problem identification + workflow (v1) + wireframes + prototypes 
++ app iterations (health and sports modes) + PMS dashboards
+KUE product lines development, Website 
+Graphic design and Content Creation
+
+=== PAGE 20 ===
+Outside the studio
+Learning origami has always been my hobby 
+(opportunity to teach origami to school kids in 2025)
+I built my personal favorite 
+LEGO McLaren F1 car
+I enjoy working on 
+embroidery and stitching
+I explore and collect 
+souvenirs 
+Acrylic painting: creative escape 
+Sketching will always 
+be close to my heart
+I illustrate digitally
+I am a Dance 
+performer
+State-level badminton, 
+still playing
+
+=== PAGE 21 ===
+Other Explorations:
+Click to explore full project 
+Modulo 
+Furniture/ Joinery Exploration project
+EchoBloom
+ADI Harit Setu Brand Design Competition entry 
+Jaipur Blue Pottery
+Craft/ Material explorations: IICD Jaipur
+Healthcare Furniture Design project
+
+=== PAGE 22 ===
+LETˇS S BUILD SOMETHING!
+Email: ketaki29khadilkar@gmail.com
+Contact: +91 8484864857
+Linkedin: https://www.linkedin.com/in/ketaki-khadilkar-2568752a1
+Behance: https://www.behance.net/ketakikhadilkar
+Instagram: @ketakidraws

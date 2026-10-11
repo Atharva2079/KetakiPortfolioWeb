@@ -3,18 +3,21 @@
    Epic Animations: GSAP, Lenis, Morphing Shapes, Particles
    ============================================================ */
 
-// ===== LENIS SMOOTH SCROLL =====
+// ===== HIGH-PERFORMANCE LENIS SMOOTH SCROLL =====
 const lenis = new Lenis({
-  duration: 1.4,
+  duration: 0.95,
   easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
   orientation: 'vertical',
   smoothWheel: true,
-  touchMultiplier: 2,
+  wheelMultiplier: 1.0,
+  touchMultiplier: 1.2,
 });
 
 lenis.on('scroll', ScrollTrigger.update);
-gsap.ticker.add((time) => { lenis.raf(time * 1000); });
-gsap.ticker.lagSmoothing(0);
+gsap.ticker.add((time) => {
+  lenis.raf(time * 1000);
+});
+gsap.ticker.lagSmoothing(500, 33);
 
 // ===== REGISTER PLUGINS =====
 gsap.registerPlugin(ScrollTrigger);
@@ -40,7 +43,7 @@ function initParticles() {
   const ctx = canvas.getContext('2d');
   
   let particles = [];
-  const PARTICLE_COUNT = 40;
+  const PARTICLE_COUNT = 16;
 
   function resize() {
     canvas.width = window.innerWidth;
@@ -94,16 +97,23 @@ function initParticles() {
   animate();
 }
 
-// ===== CURSOR GLOW =====
+// ===== HARDWARE ACCELERATED CURSOR GLOW =====
 const cursorGlow = document.getElementById('cursorGlow');
-if (cursorGlow) {
-  document.addEventListener('mousemove', (e) => {
-    gsap.to(cursorGlow, {
-      x: e.clientX,
-      y: e.clientY,
-      duration: 0.8,
-      ease: 'power2.out',
-    });
+if (cursorGlow && window.matchMedia('(pointer: fine)').matches) {
+  const setX = gsap.quickSetter(cursorGlow, 'x', 'px');
+  const setY = gsap.quickSetter(cursorGlow, 'y', 'px');
+  let targetX = -500, targetY = -500, currentX = -500, currentY = -500;
+
+  window.addEventListener('mousemove', (e) => {
+    targetX = e.clientX;
+    targetY = e.clientY;
+  }, { passive: true });
+
+  gsap.ticker.add(() => {
+    currentX += (targetX - currentX) * 0.15;
+    currentY += (targetY - currentY) * 0.15;
+    setX(currentX);
+    setY(currentY);
   });
 }
 
@@ -518,238 +528,224 @@ function initProjectHeaders() {
   });
 }
 
-// ===== SLIQUE (TOASTER) ANIMATIONS =====
+// ===== 01. SLIQUE (TOASTER) ANIMATIONS =====
 function initSliqueAnimations() {
-  // Heat background glow
-  gsap.to('.slique-heat-bg', {
-    opacity: 1,
-    scrollTrigger: {
-      trigger: '.slique-hero-wrapper',
-      start: 'top 60%',
-      end: 'bottom top',
-      scrub: 1,
-    },
-  });
-
-  // Title
-  gsap.to('#slique .project-mega-title', {
-    opacity: 1,
-    duration: 1,
-    ease: 'power3.out',
-    scrollTrigger: {
-      trigger: '.slique-hero-wrapper',
-      start: 'top 55%',
-      toggleActions: 'play none none reverse',
-    },
-  });
-
-  gsap.to('#slique .project-mega-sub', {
-    opacity: 1,
+  // Title & Hero elements entrance
+  gsap.from('#slique .project-eyebrow, #slique .project-mega-title, #slique .project-mega-sub, #slique .project-meta-pills', {
+    y: 20,
+    opacity: 0.6,
     duration: 0.8,
+    stagger: 0.1,
     ease: 'power2.out',
     scrollTrigger: {
       trigger: '.slique-hero-wrapper',
-      start: 'top 50%',
-      toggleActions: 'play none none reverse',
+      start: 'top 80%',
+      toggleActions: 'play none none none',
     },
   });
 
-  // Toaster scene — pinned scroll animation
+  const toastCards = document.querySelectorAll('.toast-card');
+  const slotGlows = document.querySelectorAll('.slot-glow');
+  const sliqueLever = document.getElementById('sliqueLever');
+
+  // Initial state: toast cards start inside the slots
+  gsap.set(toastCards, { y: 110, opacity: 0 });
+  gsap.set(slotGlows, { opacity: 0 });
+
+  // Pinned scroll-driven toaster popping animation
   const toasterTl = gsap.timeline({
     scrollTrigger: {
       trigger: '.toaster-scene',
-      start: 'top top',
-      end: '+=300%',
+      start: 'center center',
+      end: '+=150%',
       pin: true,
       scrub: 1,
       anticipatePin: 1,
+      invalidateOnRefresh: true,
+      onLeave: () => {
+        gsap.to(toastCards, { y: 0, opacity: 1, duration: 0.2, overwrite: 'auto' });
+        gsap.to(slotGlows, { opacity: 0.45, duration: 0.2, overwrite: 'auto' });
+        if (sliqueLever) gsap.to(sliqueLever, { y: 0, duration: 0.2, overwrite: 'auto' });
+      },
+      onLeaveBack: () => {
+        gsap.to(toastCards, { y: 110, opacity: 0, duration: 0.2, overwrite: 'auto' });
+        gsap.to(slotGlows, { opacity: 0, duration: 0.2, overwrite: 'auto' });
+        if (sliqueLever) gsap.to(sliqueLever, { y: 0, duration: 0.2, overwrite: 'auto' });
+      },
     },
   });
 
-  // Toaster base reveal
-  toasterTl.to('.toaster-base', {
-    opacity: 1,
-    duration: 0.5,
-    ease: 'power2.out',
-  });
+  // Step 1: Lever pushes down into toasting position
+  if (sliqueLever) {
+    toasterTl.to(sliqueLever, { y: 24, duration: 0.3, ease: 'power2.inOut' });
+  }
 
-  // Slot openings
-  toasterTl.to('.toaster-slot-opening', {
-    opacity: 1,
-    duration: 0.3,
+  // Step 2: Heating elements ignite with intense radiant amber/coral glow
+  toasterTl.to(slotGlows, {
+    opacity: 0.9,
+    duration: 0.35,
     stagger: 0.08,
-    ease: 'power2.out',
-  }, '-=0.2');
+    ease: 'power1.in',
+  }, '-=0.15');
 
-  // Toast cards POP UP one by one
-  const toastCards = document.querySelectorAll('.toast-card');
-  const slotGlows = document.querySelectorAll('.slot-glow');
+  // Step 3: Lever releases with mechanical spring
+  if (sliqueLever) {
+    toasterTl.to(sliqueLever, { y: 0, duration: 0.35, ease: 'back.out(2)' });
+  }
 
+  // Step 4: Toast cards POP UP one by one with spring physics!
   toastCards.forEach((card, index) => {
-    const offset = index === 0 ? '+=0.1' : '+=0.05';
-
-    // Glow first
     toasterTl.to(slotGlows[index], {
-      opacity: 0.8,
+      opacity: 1,
       duration: 0.2,
       ease: 'power2.in',
-    }, offset);
+    }, index === 0 ? '-=0.15' : '+=0.04');
 
-    // Card pops with spring
     toasterTl.to(card, {
       y: 0,
       opacity: 1,
-      duration: 0.6,
-      ease: 'back.out(2.5)',
-    }, '-=0.1');
+      duration: 0.65,
+      ease: 'back.out(2.4)',
+    }, '-=0.12');
 
-    // Glow settles
     toasterTl.to(slotGlows[index], {
-      opacity: 0.4,
+      opacity: 0.45,
       duration: 0.3,
       ease: 'power2.out',
-    }, '-=0.3');
+    }, '-=0.25');
   });
 
-  // Hold
-  toasterTl.to({}, { duration: 0.5 });
+  // Hold at full pop for user to absorb before smooth unpin
+  toasterTl.to({}, { duration: 0.4 });
 
-  // Context cards
-  gsap.to('.context-card', {
-    opacity: 1,
-    y: 0,
-    duration: 0.7,
-    stagger: 0.15,
-    ease: 'power3.out',
-    scrollTrigger: {
-      trigger: '.slique-context',
-      start: 'top 75%',
-      toggleActions: 'play none none reverse',
-    },
-  });
-}
-
-// ===== SYNCFORCE ANIMATIONS =====
-function initSyncForceAnimations() {
-  // Title
-  gsap.to('#syncforce .project-mega-title', {
-    opacity: 1,
-    duration: 1,
-    ease: 'power3.out',
-    scrollTrigger: {
-      trigger: '.syncforce-hero',
-      start: 'top 55%',
-      toggleActions: 'play none none reverse',
-    },
-  });
-
-  gsap.to('#syncforce .project-mega-sub', {
-    opacity: 1,
-    duration: 0.8,
-    scrollTrigger: {
-      trigger: '.syncforce-hero',
-      start: 'top 50%',
-      toggleActions: 'play none none reverse',
-    },
-  });
-
-  gsap.to('#syncforce .project-meta-pills', {
-    opacity: 1,
-    duration: 0.8,
-    scrollTrigger: {
-      trigger: '.syncforce-hero',
-      start: 'top 45%',
-      toggleActions: 'play none none reverse',
-    },
-  });
-
-  // Horizontal scroll
-  const track = document.getElementById('syncforceTrack');
-  if (track) {
-    const totalScrollWidth = track.scrollWidth - window.innerWidth;
-
-    gsap.to(track, {
-      x: () => -totalScrollWidth,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: '.horizontal-scroll-wrapper',
-        start: 'top top',
-        end: () => `+=${totalScrollWidth}`,
-        pin: true,
-        scrub: 1,
-        anticipatePin: 1,
-        invalidateOnRefresh: true,
-      },
+  // Interactive Click on Toaster Lever: Toast again!
+  if (sliqueLever) {
+    sliqueLever.addEventListener('click', () => {
+      const popTl = gsap.timeline();
+      popTl.to(sliqueLever, { y: 24, duration: 0.2, ease: 'power2.in' })
+           .to(slotGlows, { opacity: 1, duration: 0.2, stagger: 0.03 }, '<')
+           .to(toastCards, { y: 65, duration: 0.2, stagger: 0.03, ease: 'power2.in' }, '<')
+           .to(sliqueLever, { y: 0, duration: 0.4, ease: 'elastic.out(1, 0.4)', delay: 0.2 })
+           .to(toastCards, { y: 0, duration: 0.55, stagger: 0.06, ease: 'back.out(2.4)' }, '<')
+           .to(slotGlows, { opacity: 0.45, duration: 0.35 }, '-=0.25');
     });
   }
 
-  // Spec blocks
-  gsap.to('.spec-block', {
-    opacity: 1,
-    y: 0,
-    duration: 0.6,
-    stagger: 0.15,
-    ease: 'power3.out',
-    scrollTrigger: {
-      trigger: '.syncforce-specs',
-      start: 'top 75%',
-      toggleActions: 'play none none reverse',
-    },
-  });
-
-  // Animated spec numbers (count up)
-  document.querySelectorAll('.spec-number').forEach(el => {
-    const endVal = parseInt(el.textContent, 10);
-    el.textContent = '0';
-    
-    ScrollTrigger.create({
-      trigger: el,
-      start: 'top 80%',
-      once: true,
-      onEnter: () => {
-        gsap.to({ val: 0 }, {
-          val: endVal,
-          duration: 2,
-          ease: 'power2.out',
-          onUpdate: function() {
-            el.textContent = Math.round(this.targets()[0].val);
-          }
-        });
+  // Hover effect on individual toast cards
+  toastCards.forEach((card, index) => {
+    card.addEventListener('mouseenter', () => {
+      gsap.to(card, { y: -14, duration: 0.3, ease: 'power2.out', overwrite: 'auto' });
+      if (slotGlows[index]) {
+        gsap.to(slotGlows[index], { opacity: 0.85, duration: 0.25 });
+      }
+    });
+    card.addEventListener('mouseleave', () => {
+      gsap.to(card, { y: 0, duration: 0.35, ease: 'back.out(1.8)', overwrite: 'auto' });
+      if (slotGlows[index]) {
+        gsap.to(slotGlows[index], { opacity: 0.45, duration: 0.3 });
       }
     });
   });
 }
 
-// ===== AVOSPIN ANIMATIONS =====
+// ===== 02. SYNCFORCE (EV RESCUE TOOL) ANIMATIONS =====
+function initSyncForceAnimations() {
+  gsap.from('#syncforce .project-eyebrow, #syncforce .project-mega-title, #syncforce .project-mega-sub, #syncforce .project-meta-pills', {
+    y: 20,
+    opacity: 0.6,
+    duration: 0.6,
+    stagger: 0.1,
+    ease: 'power2.out',
+    scrollTrigger: {
+      trigger: '.syncforce-hero',
+      start: 'top 80%',
+      toggleActions: 'play none none none',
+    },
+  });
+
+  // Pressure Gauge Counter on Scroll
+  const gaugePath = document.getElementById('gaugePath');
+  const gaugeCounter = document.getElementById('gaugeCounter');
+
+  if (gaugePath && gaugeCounter) {
+    ScrollTrigger.create({
+      trigger: '.pressure-gauge-card',
+      start: 'top 80%',
+      once: true,
+      onEnter: () => {
+        gsap.to({ val: 0, offset: 251 }, {
+          val: 300,
+          offset: 0,
+          duration: 2,
+          ease: 'power2.out',
+          onUpdate: function() {
+            const currentVal = Math.round(this.targets()[0].val);
+            gaugeCounter.textContent = currentVal;
+            gaugePath.style.strokeDashoffset = this.targets()[0].offset;
+          }
+        });
+      }
+    });
+  }
+
+  // Interactive Mode Switcher
+  const btnModeAbrasive = document.getElementById('btnModeAbrasive');
+  const btnModeFoam = document.getElementById('btnModeFoam');
+  const modeTitle = document.getElementById('modeTitle');
+  const modeDesc = document.getElementById('modeDesc');
+
+  if (btnModeAbrasive && btnModeFoam && modeTitle && modeDesc) {
+    btnModeAbrasive.addEventListener('click', () => {
+      btnModeAbrasive.classList.add('active');
+      btnModeFoam.classList.remove('active');
+      gsap.to('#modeDisplayBox', {
+        opacity: 0.2, duration: 0.15, onComplete: () => {
+          modeTitle.textContent = 'Water + Tungsten Abrasive Mixture';
+          modeDesc.textContent = 'Ultra-high pressure abrasive slurry punctures ultra-high-strength steel car bodywork and battery casings within seconds without generating thermal sparks.';
+          gsap.to('#modeDisplayBox', { opacity: 1, duration: 0.25 });
+        }
+      });
+    });
+
+    btnModeFoam.addEventListener('click', () => {
+      btnModeFoam.classList.add('active');
+      btnModeAbrasive.classList.remove('active');
+      gsap.to('#modeDisplayBox', {
+        opacity: 0.2, duration: 0.15, onComplete: () => {
+          modeTitle.textContent = 'Water + Class B Foam Suppression';
+          modeDesc.textContent = 'High-expansion foam mixture delivered via specialized brass nozzle to smother battery cell thermal propagation and blanket vapor clouds.';
+          gsap.to('#modeDisplayBox', { opacity: 1, duration: 0.25 });
+        }
+      });
+    });
+  }
+
+  // Protocol cards stagger — subtle y only, NEVER INVISIBLE
+  gsap.from('.protocol-card', {
+    y: 20,
+    duration: 0.5,
+    stagger: 0.1,
+    ease: 'power2.out',
+    scrollTrigger: {
+      trigger: '.workflow-protocol-section',
+      start: 'top 85%',
+      toggleActions: 'play none none none',
+    },
+  });
+}
+
+// ===== 03. AVOSPIN (FIDGET TOY) ANIMATIONS =====
 function initAvoSpinAnimations() {
-  // Title
-  gsap.to('#avospin .project-mega-title', {
-    opacity: 1,
-    duration: 1,
+  gsap.from('#avospin .project-eyebrow, #avospin .project-mega-title, #avospin .project-mega-sub, #avospin .project-meta-pills', {
+    y: 20,
+    opacity: 0.6,
+    duration: 0.6,
+    stagger: 0.1,
+    ease: 'power2.out',
     scrollTrigger: {
       trigger: '.avospin-hero',
-      start: 'top 55%',
-      toggleActions: 'play none none reverse',
-    },
-  });
-
-  gsap.to('#avospin .project-mega-sub', {
-    opacity: 1,
-    duration: 0.8,
-    scrollTrigger: {
-      trigger: '.avospin-hero',
-      start: 'top 50%',
-      toggleActions: 'play none none reverse',
-    },
-  });
-
-  gsap.to('#avospin .project-meta-pills', {
-    opacity: 1,
-    duration: 0.8,
-    scrollTrigger: {
-      trigger: '.avospin-hero',
-      start: 'top 45%',
-      toggleActions: 'play none none reverse',
+      start: 'top 80%',
+      toggleActions: 'play none none none',
     },
   });
 
@@ -757,156 +753,271 @@ function initAvoSpinAnimations() {
   const spinner = document.getElementById('avospinSpinner');
   if (spinner) {
     gsap.to(spinner, {
-      rotation: 360,
+      rotation: 720,
       ease: 'none',
       scrollTrigger: {
-        trigger: '.avospin-showcase',
+        trigger: '#avospin',
         start: 'top bottom',
         end: 'bottom top',
-        scrub: 2,
+        scrub: 1.5,
       },
     });
-  }
 
-  // Feature cards stagger
-  gsap.to('.avospin-feature', {
-    opacity: 1,
-    x: 0,
-    duration: 0.7,
-    stagger: 0.12,
-    ease: 'power3.out',
+    spinner.addEventListener('mouseenter', () => {
+      gsap.to(spinner, { rotation: '+=180', duration: 0.8, ease: 'power2.out' });
+    });
+  }
+}
+
+// ===== 04. ACTICOMPRESS (ANATOMECH) ANIMATIONS =====
+function initActicompressAnimations() {
+  gsap.from('#acticompress .project-eyebrow, #acticompress .project-mega-title, #acticompress .project-mega-sub, #acticompress .project-meta-pills', {
+    y: 20,
+    opacity: 0.6,
+    duration: 0.6,
+    stagger: 0.1,
+    ease: 'power2.out',
     scrollTrigger: {
-      trigger: '.avospin-features',
-      start: 'top 70%',
-      toggleActions: 'play none none reverse',
+      trigger: '.acticompress-hero',
+      start: 'top 80%',
+      toggleActions: 'play none none none',
     },
   });
 
-  // Gallery items
-  gsap.to('#avospin .gallery-item', {
-    opacity: 1,
-    y: 0,
-    duration: 0.8,
-    stagger: 0.2,
+  // Dual Mode CMF Switcher
+  const btnCmfHealth = document.getElementById('btnCmfHealth');
+  const btnCmfSports = document.getElementById('btnCmfSports');
+  const cmfTitle = document.getElementById('cmfTitle');
+  const cmfDescription = document.getElementById('cmfDescription');
+
+  if (btnCmfHealth && btnCmfSports && cmfTitle && cmfDescription) {
+    btnCmfHealth.addEventListener('click', () => {
+      btnCmfHealth.classList.add('active');
+      btnCmfSports.classList.remove('active');
+      gsap.to('.cmf-card-info', {
+        opacity: 0.2, duration: 0.15, onComplete: () => {
+          cmfTitle.textContent = 'Clinical Health Mode';
+          cmfDescription.textContent = 'Soft, anti-microbial hypoallergenic textiles with neutral soothing medical tones. Engineered for elderly patients with venous edema and lymphedema, featuring magnetic alignment latches for painless self-donning.';
+          gsap.to('.cmf-card-info', { opacity: 1, duration: 0.25 });
+        }
+      });
+    });
+
+    btnCmfSports.addEventListener('click', () => {
+      btnCmfSports.classList.add('active');
+      btnCmfHealth.classList.remove('active');
+      gsap.to('.cmf-card-info', {
+        opacity: 0.2, duration: 0.15, onComplete: () => {
+          cmfTitle.textContent = 'Athletic Performance Mode';
+          cmfDescription.textContent = 'High-tensile aerodynamic moisture-wicking weave with graphite and vibrant cobalt accents. Built for dynamic muscle recovery, reducing lactate buildup during high-impact endurance training.';
+          gsap.to('.cmf-card-info', { opacity: 1, duration: 0.25 });
+        }
+      });
+    });
+  }
+}
+
+// ===== 05. OUTSIDE THE STUDIO ANIMATIONS =====
+function initOutsideStudioAnimations() {
+  gsap.from('#outside-studio .project-eyebrow, #outside-studio .project-mega-title, #outside-studio .project-mega-sub, #outside-studio .project-meta-pills', {
+    y: 20,
+    opacity: 0.6,
+    duration: 0.6,
+    stagger: 0.1,
     ease: 'power2.out',
     scrollTrigger: {
-      trigger: '#avospin .project-gallery',
-      start: 'top 70%',
-      toggleActions: 'play none none reverse',
+      trigger: '.outside-hero',
+      start: 'top 80%',
+      toggleActions: 'play none none none',
+    },
+  });
+
+  // F1 speed trail scrub
+  gsap.to('.f1-speed-trail', {
+    x: '30%',
+    opacity: 0.7,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '.outside-hero',
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: 1,
+    },
+  });
+
+  // 3D Tilt Effect on Passion Cards
+  document.querySelectorAll('.passion-card[data-tilt]').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      gsap.to(card, {
+        rotationY: x * 0.04,
+        rotationX: -y * 0.04,
+        transformPerspective: 1000,
+        duration: 0.25,
+        ease: 'power2.out',
+      });
+    });
+
+    card.addEventListener('mouseleave', () => {
+      gsap.to(card, {
+        rotationY: 0,
+        rotationX: 0,
+        duration: 0.4,
+        ease: 'power2.out',
+      });
+    });
+  });
+}
+
+// ===== 06. OTHER EXPLORATIONS ANIMATIONS =====
+function initExplorationsAnimations() {
+  gsap.from('#explorations .project-eyebrow, #explorations .project-mega-title, #explorations .project-mega-sub, #explorations .project-meta-pills', {
+    y: 20,
+    opacity: 0.6,
+    duration: 0.6,
+    stagger: 0.1,
+    ease: 'power2.out',
+    scrollTrigger: {
+      trigger: '.explorations-hero',
+      start: 'top 80%',
+      toggleActions: 'play none none none',
     },
   });
 }
 
-// ===== MODULO ANIMATIONS =====
-function initModuloAnimations() {
-  // Blueprint grid fade in
-  gsap.to('.blueprint-grid', {
-    opacity: 1,
-    duration: 1.5,
-    scrollTrigger: {
-      trigger: '.modulo-hero',
-      start: 'top 60%',
-      toggleActions: 'play none none reverse',
-    },
+// ===== FULLSCREEN SLIDE INSPECTOR MODAL =====
+const SLIDE_METADATA = [
+  { page: 1, title: 'Cover · Ketaki Khadilkar Industrial Design' },
+  { page: 2, title: 'About Me · Design Workflow, Tools & Background' },
+  { page: 3, title: 'Index of Selected Works (01 - 06)' },
+  { page: 4, title: '01 SLIQUE · Multi-Slot Toaster for Morning Routines' },
+  { page: 5, title: '01 SLIQUE · User Research, POV & Pain Points' },
+  { page: 6, title: '01 SLIQUE · Sketching, Heating & Mechanisms' },
+  { page: 7, title: '01 SLIQUE · Stainless Steel Fabrication & Assembly Drawings' },
+  { page: 8, title: '01 SLIQUE · Prototyping, 5-Slot Architecture & Details' },
+  { page: 9, title: '01 SLIQUE · KeyShot Renders & Final Form' },
+  { page: 10, title: '02 SYNCFORCE · Modular Rescue Tool for EV Fires' },
+  { page: 11, title: '02 SYNCFORCE · Field Study: 6 Fire Stations & Benchmark' },
+  { page: 12, title: '02 SYNCFORCE · Connect, Lock, Operate: Storz Coupling' },
+  { page: 13, title: '02 SYNCFORCE · Final 1:1 Prototype, Materials & 3D Nozzles' },
+  { page: 14, title: '03 AVOSPIN · Sensory Fidget Toy Design & Ergonomics' },
+  { page: 15, title: '03 AVOSPIN · Mechanism, Planetary Gear CAD & Exploded View' },
+  { page: 16, title: '03 AVOSPIN · 5-Day Sprint: 6 Gear Iterations & 3 Body Builds' },
+  { page: 17, title: '04 ACTICOMPRESS (ANATOMECH) · Healthcare Compression Wearables' },
+  { page: 18, title: '04 ACTICOMPRESS · Clinical Discovery, 10 Interviews & 4 Cycles' },
+  { page: 19, title: '04 ACTICOMPRESS · Testing, Dual CMF Modes & Mobile/Web UI' },
+  { page: 20, title: '05 OUTSIDE THE STUDIO · 9 Creative & Athletic Pursuits' },
+  { page: 21, title: '06 OTHER EXPLORATIONS · Modulo, EchoBloom, Jaipur Pottery & Healthcare' },
+  { page: 22, title: "Contact & Collaborations · Let's Build Something" },
+];
+
+function initSlideModal() {
+  const modal = document.getElementById('slideModal');
+  if (!modal) return;
+
+  const modalBackdrop = document.getElementById('modalBackdrop');
+  const btnClose = document.getElementById('btnModalClose');
+  const btnPrev = document.getElementById('btnModalPrev');
+  const btnNext = document.getElementById('btnModalNext');
+  const btnZoom = document.getElementById('btnZoomToggle');
+  const mainImage = document.getElementById('modalMainImage');
+  const imageWrapper = document.getElementById('modalImageWrapper');
+  const counterEl = document.getElementById('modalSlideCounter');
+  const titleEl = document.getElementById('modalSlideTitle');
+  const thumbsContainer = document.getElementById('modalThumbnails');
+
+  let currentSlideIndex = 0;
+  let isZoomed = false;
+
+  // Generate Thumbnails
+  thumbsContainer.innerHTML = '';
+  SLIDE_METADATA.forEach((meta, idx) => {
+    const thumb = document.createElement('div');
+    thumb.className = `modal-thumb ${idx === 0 ? 'active' : ''}`;
+    thumb.innerHTML = `<img src="assets/portfolio_pages/page_${String(meta.page).padStart(2, '0')}.jpg" alt="Thumbnail ${meta.page}" loading="lazy" />`;
+    thumb.addEventListener('click', () => setSlide(idx));
+    thumbsContainer.appendChild(thumb);
   });
 
-  // Title
-  gsap.to('#modulo .project-mega-title', {
-    opacity: 1,
-    duration: 1,
-    scrollTrigger: {
-      trigger: '.modulo-hero',
-      start: 'top 55%',
-      toggleActions: 'play none none reverse',
-    },
-  });
+  function setSlide(index) {
+    if (index < 0) index = SLIDE_METADATA.length - 1;
+    if (index >= SLIDE_METADATA.length) index = 0;
+    currentSlideIndex = index;
 
-  gsap.to('#modulo .project-mega-sub', {
-    opacity: 1,
-    duration: 0.8,
-    scrollTrigger: {
-      trigger: '.modulo-hero',
-      start: 'top 50%',
-      toggleActions: 'play none none reverse',
-    },
-  });
+    const meta = SLIDE_METADATA[currentSlideIndex];
+    const imagePath = `assets/portfolio_pages/page_${String(meta.page).padStart(2, '0')}.jpg`;
 
-  gsap.to('#modulo .project-meta-pills', {
-    opacity: 1,
-    duration: 0.8,
-    scrollTrigger: {
-      trigger: '.modulo-hero',
-      start: 'top 45%',
-      toggleActions: 'play none none reverse',
-    },
-  });
+    isZoomed = false;
+    imageWrapper.classList.remove('zoomed');
 
-  // Parts assembly — scatter to position
-  const parts = document.querySelectorAll('.modulo-part');
-  const offsets = [
-    { x: -150, y: -100, rotate: -15 },
-    { x: 150, y: -50, rotate: 10 },
-    { x: -80, y: 120, rotate: -8 },
-  ];
-
-  parts.forEach((part, i) => {
-    gsap.from(part, {
-      x: offsets[i].x,
-      y: offsets[i].y,
-      rotation: offsets[i].rotate,
-      opacity: 0,
-      duration: 1.2,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: '.modulo-assembly',
-        start: 'top 60%',
-        end: 'top 20%',
-        scrub: 1,
-      },
+    gsap.to(mainImage, {
+      opacity: 0.3,
+      duration: 0.12,
+      onComplete: () => {
+        mainImage.src = imagePath;
+        counterEl.textContent = `Slide ${String(meta.page).padStart(2, '0')} / 22`;
+        titleEl.textContent = meta.title;
+        gsap.to(mainImage, { opacity: 1, duration: 0.2 });
+      }
     });
+
+    const thumbs = thumbsContainer.querySelectorAll('.modal-thumb');
+    thumbs.forEach((t, i) => {
+      t.classList.toggle('active', i === currentSlideIndex);
+      if (i === currentSlideIndex) {
+        t.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      }
+    });
+  }
+
+  function openModal(pageNumber) {
+    const targetIdx = SLIDE_METADATA.findIndex(m => m.page === pageNumber);
+    setSlide(targetIdx !== -1 ? targetIdx : 0);
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    isZoomed = false;
+    imageWrapper.classList.remove('zoomed');
+  }
+
+  btnClose.addEventListener('click', closeModal);
+  modalBackdrop.addEventListener('click', closeModal);
+  btnPrev.addEventListener('click', () => setSlide(currentSlideIndex - 1));
+  btnNext.addEventListener('click', () => setSlide(currentSlideIndex + 1));
+
+  btnZoom.addEventListener('click', () => {
+    isZoomed = !isZoomed;
+    imageWrapper.classList.toggle('zoomed', isZoomed);
   });
 
-  // Info text
-  gsap.to('.modulo-info h3', {
-    opacity: 1,
-    duration: 0.8,
-    scrollTrigger: {
-      trigger: '.modulo-info',
-      start: 'top 70%',
-      toggleActions: 'play none none reverse',
-    },
+  document.addEventListener('keydown', (e) => {
+    if (!modal.classList.contains('open')) return;
+    if (e.key === 'Escape') closeModal();
+    if (e.key === 'ArrowLeft') setSlide(currentSlideIndex - 1);
+    if (e.key === 'ArrowRight') setSlide(currentSlideIndex + 1);
   });
 
-  gsap.to('.modulo-info p', {
-    opacity: 1,
-    duration: 0.8,
-    scrollTrigger: {
-      trigger: '.modulo-info p',
-      start: 'top 75%',
-      toggleActions: 'play none none reverse',
-    },
-  });
-
-  // Specs
-  gsap.to('.modulo-spec', {
-    opacity: 1,
-    y: 0,
-    duration: 0.5,
-    stagger: 0.1,
-    ease: 'power2.out',
-    scrollTrigger: {
-      trigger: '.modulo-specs',
-      start: 'top 80%',
-      toggleActions: 'play none none reverse',
-    },
+  document.querySelectorAll('.slide-inspect-btn, [data-slide]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const pageNum = parseInt(btn.getAttribute('data-slide'), 10) || 1;
+      openModal(pageNum);
+    });
   });
 }
 
 // ===== MARQUEE ANIMATION =====
 function initMarquee() {
-  // Speed up marquee on scroll
   gsap.to('.marquee-track', {
-    x: '-=200',
+    x: '-=300',
     ease: 'none',
     scrollTrigger: {
       trigger: '.projects-marquee',
@@ -919,44 +1030,7 @@ function initMarquee() {
 
 // ===== CONTACT ANIMATIONS =====
 function initContactAnimations() {
-  gsap.to('.contact-label', {
-    opacity: 1,
-    duration: 0.8,
-    scrollTrigger: {
-      trigger: '#contact', start: 'top 65%',
-      toggleActions: 'play none none reverse',
-    },
-  });
-
-  gsap.to('.contact-heading', {
-    opacity: 1,
-    duration: 1,
-    scrollTrigger: {
-      trigger: '#contact', start: 'top 60%',
-      toggleActions: 'play none none reverse',
-    },
-  });
-
-  gsap.to('.contact-subtext', {
-    opacity: 1,
-    duration: 0.8,
-    scrollTrigger: {
-      trigger: '#contact', start: 'top 55%',
-      toggleActions: 'play none none reverse',
-    },
-  });
-
-  gsap.to('.contact-link', {
-    opacity: 1,
-    y: 0,
-    duration: 0.5,
-    stagger: 0.1,
-    ease: 'power2.out',
-    scrollTrigger: {
-      trigger: '.contact-links', start: 'top 75%',
-      toggleActions: 'play none none reverse',
-    },
-  });
+  // Always visible, subtle motion only
 }
 
 // ===== MAGNETIC HOVER ON NAV LINKS =====
@@ -996,12 +1070,14 @@ function initAllAnimations() {
   initSliqueAnimations();
   initSyncForceAnimations();
   initAvoSpinAnimations();
-  initModuloAnimations();
+  initActicompressAnimations();
+  initOutsideStudioAnimations();
+  initExplorationsAnimations();
+  initSlideModal();
   initMarquee();
   initContactAnimations();
   initMagneticHover();
 
-  // Refresh ScrollTrigger
   ScrollTrigger.refresh();
 }
 
@@ -1018,7 +1094,6 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// Refresh on resize
 window.addEventListener('resize', () => {
   ScrollTrigger.refresh();
 });

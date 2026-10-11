@@ -57,6 +57,16 @@
   <!-- ===== FLOATING PARTICLES ===== -->
   <canvas id="particleCanvas"></canvas>
 
+  <!-- ===== GLOBAL HOMEPAGE GRADIENTS (Flowing Across Entire Website) ===== -->
+  <div class="global-ambient-bg" aria-hidden="true">
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+    <div class="ambient-orb orb-3"></div>
+    <div class="ambient-orb orb-4"></div>
+    <div class="ambient-orb orb-5"></div>
+    <div class="ambient-glow-mesh"></div>
+  </div>
+
   <!-- ===== NAVIGATION ===== -->
   <nav id="navbar">
     <a href="#hero" class="nav-logo">
@@ -67,7 +77,9 @@
       <a href="#slique" data-nav>Slique</a>
       <a href="#syncforce" data-nav>SyncForce</a>
       <a href="#avospin" data-nav>AvoSpin</a>
-      <a href="#modulo" data-nav>Modulo</a>
+      <a href="#acticompress" data-nav>Acticompress</a>
+      <a href="#outside-studio" data-nav>Outside Studio</a>
+      <a href="#explorations" data-nav>Explorations</a>
       <a href="#contact" data-nav>Contact</a>
     </div>
     <!-- Mobile Menu Toggle -->
@@ -81,10 +93,12 @@
   <!-- Mobile Menu Overlay -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="#about" class="mobile-menu-link">About</a>
-    <a href="#slique" class="mobile-menu-link">Slique</a>
-    <a href="#syncforce" class="mobile-menu-link">SyncForce</a>
-    <a href="#avospin" class="mobile-menu-link">AvoSpin</a>
-    <a href="#modulo" class="mobile-menu-link">Modulo</a>
+    <a href="#slique" class="mobile-menu-link">01 Slique</a>
+    <a href="#syncforce" class="mobile-menu-link">02 SyncForce</a>
+    <a href="#avospin" class="mobile-menu-link">03 AvoSpin</a>
+    <a href="#acticompress" class="mobile-menu-link">04 Acticompress</a>
+    <a href="#outside-studio" class="mobile-menu-link">05 Outside Studio</a>
+    <a href="#explorations" class="mobile-menu-link">06 Explorations</a>
     <a href="#contact" class="mobile-menu-link">Contact</a>
   </div>
 
@@ -238,36 +252,89 @@
   <!-- ============ PROJECTS MARQUEE ============ -->
   <div class="projects-marquee" id="projectsMarquee">
     <div class="marquee-track">
-      <span>SLIQUE</span><span class="marquee-dot">✳</span>
-      <span>SYNCFORCE</span><span class="marquee-dot">✳</span>
-      <span>AVOSPIN</span><span class="marquee-dot">✳</span>
-      <span>MODULO</span><span class="marquee-dot">✳</span>
-      <span>SLIQUE</span><span class="marquee-dot">✳</span>
-      <span>SYNCFORCE</span><span class="marquee-dot">✳</span>
-      <span>AVOSPIN</span><span class="marquee-dot">✳</span>
-      <span>MODULO</span><span class="marquee-dot">✳</span>
+      <span>01 SLIQUE</span><span class="marquee-dot">✳</span>
+      <span>02 SYNCFORCE</span><span class="marquee-dot">✳</span>
+      <span>03 AVOSPIN</span><span class="marquee-dot">✳</span>
+      <span>04 ACTICOMPRESS</span><span class="marquee-dot">✳</span>
+      <span>05 OUTSIDE STUDIO</span><span class="marquee-dot">✳</span>
+      <span>06 OTHER EXPLORATIONS</span><span class="marquee-dot">✳</span>
+      <span>01 SLIQUE</span><span class="marquee-dot">✳</span>
+      <span>02 SYNCFORCE</span><span class="marquee-dot">✳</span>
+      <span>03 AVOSPIN</span><span class="marquee-dot">✳</span>
+      <span>04 ACTICOMPRESS</span><span class="marquee-dot">✳</span>
+      <span>05 OUTSIDE STUDIO</span><span class="marquee-dot">✳</span>
+      <span>06 OTHER EXPLORATIONS</span><span class="marquee-dot">✳</span>
     </div>
   </div>
 
-  <!-- ============ SLIQUE — TOASTER SECTION ============ -->
+  <!-- ============================================================
+       01. SLIQUE — TOASTER SECTION
+       ============================================================ -->
   <section id="slique" class="project-section project-slique">
     <div class="project-reveal-header">
       <span class="project-num">01</span>
       <div class="project-num-line"></div>
-      <span class="project-cat">Product Design</span>
+      <span class="project-cat">Industrial Design · Kitchenware</span>
+      <button class="slide-inspect-btn" data-slide="4" title="Inspect Original Portfolio Slide">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+        <span>View Slide</span>
+      </button>
     </div>
     
     <div class="slique-hero-wrapper">
-      <!-- Animated toaster heat wave background -->
       <div class="slique-heat-bg" id="sliqueHeatBg"></div>
-      
       <div class="slique-title-block">
+        <span class="project-eyebrow">Compact Multi-Slot Architecture</span>
         <h2 class="project-mega-title slique-color">SLIQUE</h2>
-        <p class="project-mega-sub">5-Slot Bread Toaster · 4 Months · Individual Project</p>
+        <p class="project-mega-sub">A Multi-Slot Toaster for Varied Morning Routines</p>
+        <div class="project-meta-pills">
+          <span class="meta-pill">4 Months Studio Project</span>
+          <span class="meta-pill">Individual Design</span>
+          <span class="meta-pill">5 Toasting Slots</span>
+          <span class="meta-pill">1:1 Steel Prototype</span>
+        </div>
       </div>
     </div>
 
-    <!-- Toaster Toast-Pop Machine -->
+    <!-- Research Insights & User POV -->
+    <div class="project-narrative-container">
+      <div class="narrative-grid two-col">
+        <div class="narrative-block">
+          <h3 class="narrative-title">Why SLIQUE Toaster?</h3>
+          <p class="narrative-text">
+            Rushed mornings create an urgent need for low-effort, high-speed meals. However, traditional toasters force compromises: some family members only want a single slice, while others need four slices simultaneously with different browning preferences.
+          </p>
+          <p class="narrative-text">
+            This challenge led Ketaki to rethink toaster architecture around <strong>individual control, cleanliness, and spatial efficiency</strong> in both shared living and busy office environments.
+          </p>
+          <div class="pain-points-list">
+            <div class="pain-pill"><span>⚡</span> Simultaneous Multi-Toasting Without Waiting</div>
+            <div class="pain-pill"><span>🎚️</span> Independent Browning Across Slots</div>
+            <div class="pain-pill"><span>✨</span> Mess-Free Butter & Jam Prep</div>
+            <div class="pain-pill"><span>🧹</span> Smooth-Slide Crumb Handling</div>
+          </div>
+        </div>
+
+        <div class="quotes-card-column">
+          <div class="user-quote-card">
+            <div class="quote-icon">“</div>
+            <p class="quote-body">
+              "Being a programmer, I prefer not to get my hands buttery or sticky at all when I'm in a rush. I'd rather skip eating excluding lunch breaks than deal with a messy kitchen."
+            </p>
+            <div class="quote-author">— Sourabh, 42 · Senior Programmer</div>
+          </div>
+          <div class="user-quote-card">
+            <div class="quote-icon">“</div>
+            <p class="quote-body">
+              "I often use a toaster when I don't have time to cook a whole meal. It makes breakfast much quicker, but preparing multiple batches sequentially makes breakfast cold."
+            </p>
+            <div class="quote-author">— Supriya, 29 · Working Professional</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive Toaster Toast-Pop Machine -->
     <div class="toaster-scene">
       <div class="toaster-machine">
         <div class="toaster-slots-row">
@@ -279,7 +346,8 @@
               </div>
               <div class="toast-card-content">
                 <span class="toast-card-label">Phase 01</span>
-                <h3 class="toast-card-title">Design for All — User Research</h3>
+                <h3 class="toast-card-title">User Research & POV</h3>
+                <p class="toast-card-desc">Observing morning crunch rituals</p>
               </div>
             </div>
             <div class="slot-glow"></div>
@@ -290,11 +358,12 @@
           <div class="toaster-slot-unit">
             <div class="toast-card" data-toast="2">
               <div class="toast-card-image">
-                <img src="assets/images/slique_making.png" alt="SLIQUE Manufacturing" loading="lazy" />
+                <img src="assets/portfolio_pages/page_06.jpg" alt="SLIQUE Sketching & Mechanisms" loading="lazy" />
               </div>
               <div class="toast-card-content">
                 <span class="toast-card-label">Phase 02</span>
-                <h3 class="toast-card-title">From CAD to Tangible Product</h3>
+                <h3 class="toast-card-title">Form & Mechanisms</h3>
+                <p class="toast-card-desc">Heating structure & sliding tray</p>
               </div>
             </div>
             <div class="slot-glow"></div>
@@ -305,11 +374,12 @@
           <div class="toaster-slot-unit">
             <div class="toast-card" data-toast="3">
               <div class="toast-card-image">
-                <img src="assets/images/slique_prototype.png" alt="SLIQUE Prototype" loading="lazy" />
+                <img src="assets/images/slique_making.png" alt="SLIQUE Manufacturing" loading="lazy" />
               </div>
               <div class="toast-card-content">
                 <span class="toast-card-label">Phase 03</span>
-                <h3 class="toast-card-title">Prototyping — 5 Toasting Slots</h3>
+                <h3 class="toast-card-title">CAD to Stainless Steel</h3>
+                <p class="toast-card-desc">Laser cut, spot weld & press bend</p>
               </div>
             </div>
             <div class="slot-glow"></div>
@@ -320,11 +390,12 @@
           <div class="toaster-slot-unit">
             <div class="toast-card" data-toast="4">
               <div class="toast-card-image">
-                <img src="assets/images/slique_detail.png" alt="SLIQUE Details" loading="lazy" />
+                <img src="assets/images/slique_prototype.png" alt="SLIQUE Prototype" loading="lazy" />
               </div>
               <div class="toast-card-content">
                 <span class="toast-card-label">Phase 04</span>
-                <h3 class="toast-card-title">Product Detailing & Features</h3>
+                <h3 class="toast-card-title">5-Slot Architecture</h3>
+                <p class="toast-card-desc">2 dual + 1 single slot systems</p>
               </div>
             </div>
             <div class="slot-glow"></div>
@@ -339,7 +410,8 @@
               </div>
               <div class="toast-card-content">
                 <span class="toast-card-label">Phase 05</span>
-                <h3 class="toast-card-title">Final Design & Renders</h3>
+                <h3 class="toast-card-title">Final CMF & KeyShot</h3>
+                <p class="toast-card-desc">Powder-coated stainless housing</p>
               </div>
             </div>
             <div class="slot-glow"></div>
@@ -347,233 +419,728 @@
           </div>
         </div>
 
-        <!-- Toaster Body -->
+        <!-- Toaster Base -->
         <div class="toaster-base">
-          <div class="toaster-knob"></div>
-          <span class="toaster-label-text">SLIQUE — Designed by Ketaki</span>
-          <div class="toaster-knob"></div>
-          <div class="toaster-lever"></div>
+          <div class="toaster-knob" title="Rotate Browning Level"></div>
+          <span class="toaster-label-text">SLIQUE · 5-SLOT ARCHITECTURE</span>
+          <div class="toaster-knob" title="Independent Timer Dial"></div>
+          <div class="toaster-lever" id="sliqueLever" title="Push lever down to toast"></div>
         </div>
       </div>
     </div>
 
-    <!-- Slique Context Cards -->
-    <div class="slique-context">
-      <div class="context-card">
-        <div class="context-icon">🍞</div>
-        <h4>Consistent Browning</h4>
-        <p>Advanced heating components with visual indication for perfect toasting every time.</p>
+    <!-- Technical Detailing & Material Specs -->
+    <div class="project-details-suite">
+      <div class="suite-header">
+        <h3>Engineering Detailing & Fabrication Specs</h3>
+        <p>From CAD simulation to 1:1 functional stainless steel prototype</p>
       </div>
-      <div class="context-card">
-        <div class="context-icon">⚙️</div>
-        <h4>20+ Mechanical Parts</h4>
-        <p>Precision engineered with laser cutting, hand press bending, and CO2 spot welding.</p>
-      </div>
-      <div class="context-card">
-        <div class="context-icon">🧹</div>
-        <h4>Easy Maintenance</h4>
-        <p>Individual functioning levers and removable crumb tray for effortless cleaning.</p>
+      <div class="tech-spec-grid">
+        <div class="tech-spec-card">
+          <div class="tech-spec-num">20+</div>
+          <div class="tech-spec-title">Mechanical Components</div>
+          <p class="tech-spec-p">Precision linkages, lever control rods, compression springs, and custom latch assemblies.</p>
+        </div>
+        <div class="tech-spec-card">
+          <div class="tech-spec-num">5 Slots</div>
+          <div class="tech-spec-title">Independent Zoning</div>
+          <p class="tech-spec-p">Two paired dual-slot sections + one dedicated single-slice chamber with separate lever operation.</p>
+        </div>
+        <div class="tech-spec-card">
+          <div class="tech-spec-num">Nichrome</div>
+          <div class="tech-spec-title">Thermal System</div>
+          <p class="tech-spec-p">High-resistance Nichrome heating wire wound across dielectric Mica insulation sheets for even browning.</p>
+        </div>
+        <div class="tech-spec-card">
+          <div class="tech-spec-num">4 Processes</div>
+          <div class="tech-spec-title">Metal Fabrication</div>
+          <p class="tech-spec-p">Precision CNC laser cutting, hand press brake bending, CO2 spot welding, and industrial satin powder-coating.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ SYNCFORCE — FIREFIGHTER SECTION ============ -->
+  <!-- ============================================================
+       02. SYNCFORCE — EMERGENCY EV RESCUE TOOL
+       ============================================================ -->
   <section id="syncforce" class="project-section project-syncforce">
     <div class="project-reveal-header">
       <span class="project-num">02</span>
       <div class="project-num-line"></div>
-      <span class="project-cat">For The Society</span>
+      <span class="project-cat">Emergency Response · Industrial Product Design</span>
+      <button class="slide-inspect-btn" data-slide="10" title="Inspect Original Portfolio Slide">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+        <span>View Slide</span>
+      </button>
     </div>
 
-    <!-- Emergency Siren Animation Hero -->
     <div class="syncforce-hero">
       <div class="siren-pulse" id="sirenPulse"></div>
       <div class="siren-pulse delay" id="sirenPulse2"></div>
+      <span class="project-eyebrow" style="color: var(--accent-syncforce);">For The Society · Firefighter Emergency Gear</span>
       <h2 class="project-mega-title syncforce-color">SYNCFORCE</h2>
-      <p class="project-mega-sub">Multi-Functional Firefighter Rescue Tool</p>
+      <p class="project-mega-sub">A Modular Rescue Tool Engineered for EV Fire Emergencies</p>
       <div class="project-meta-pills">
-        <span class="meta-pill">4 Months</span>
-        <span class="meta-pill">Individual Project</span>
-        <span class="meta-pill">Product Design Studio</span>
+        <span class="meta-pill sync-pill">4 Months Studio Project</span>
+        <span class="meta-pill sync-pill">300 Bar Water Pressure</span>
+        <span class="meta-pill sync-pill">Interchangeable Nozzles</span>
+        <span class="meta-pill sync-pill">Field Research: 6 Fire Stations</span>
       </div>
     </div>
 
-    <!-- Horizontal Scroll Gallery -->
-    <div class="horizontal-scroll-wrapper">
-      <div class="horizontal-scroll-track" id="syncforceTrack">
-        <div class="h-scroll-card">
-          <img src="assets/images/syncforce_cover.png" alt="SyncForce Overview" loading="lazy" />
-          <div class="h-scroll-card-content">
-            <h3>The Challenge</h3>
-            <p>Firefighters face high-pressure rescue scenarios with tools that are singular in function, leading to equipment overload and chaos within rescue trucks. SyncForce addresses this with a modular, multi-functional approach.</p>
+    <!-- The Emergency Context & Pune Fieldwork -->
+    <div class="project-narrative-container">
+      <div class="narrative-grid two-col">
+        <div class="narrative-block">
+          <h3 class="narrative-title">The High-Pressure Reality of EV Fires</h3>
+          <p class="narrative-text">
+            Electric vehicle battery thermal runaways burn at upwards of 1,000°C and cannot be extinguished with standard water hoses alone. Firetrucks carry specialized tools, but each tool serves an isolated, singular role—leading to equipment overload, disorganization, and dangerous delays at the accident scene.
+          </p>
+          <div class="field-study-card">
+            <div class="field-study-badge">On-Site Observational Fieldwork</div>
+            <h4>Visit to 6 Fire Stations Across Pune</h4>
+            <p>
+              Ketaki conducted extensive observational research across 6 fire stations including the <strong>Pune Fire Brigade Headquarters</strong>, interviewing front-line first responders to study tool retrieval friction and fatigue under life-critical time spans.
+            </p>
+          </div>
+          <div class="benchmark-note">
+            <strong>Benchmark Studied:</strong> C 360 H Kit by Coldcut Cobra cutting-extinguisher system for heavy vehicle installation.
           </div>
         </div>
-        <div class="h-scroll-card">
-          <img src="assets/images/syncforce_research.png" alt="SyncForce Research" loading="lazy" />
-          <div class="h-scroll-card-content">
-            <h3>Research & Insights</h3>
-            <p>Extensive field research with firefighters revealed the need for faster operation, reduced fatigue, effective emergency response, and modular tool design that can adapt to different rescue scenarios.</p>
+
+        <div class="syncforce-interactive-widget">
+          <!-- 300 Bar Pressure Gauge -->
+          <div class="pressure-gauge-card">
+            <div class="gauge-header">
+              <span>Operating Hydraulic Pressure</span>
+              <span class="gauge-status">HIGH PRESSURE READY</span>
+            </div>
+            <div class="gauge-meter-wrapper">
+              <svg viewBox="0 0 200 120" class="gauge-svg">
+                <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="12" stroke-linecap="round"/>
+                <path id="gaugePath" d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="var(--accent-syncforce)" stroke-width="12" stroke-dasharray="251" stroke-dashoffset="50" stroke-linecap="round"/>
+              </svg>
+              <div class="gauge-center-text">
+                <span class="gauge-number" id="gaugeCounter">300</span>
+                <span class="gauge-unit">BAR</span>
+              </div>
+            </div>
+            <p class="gauge-caption">Delivers 300 bar piercing stream to puncture reinforced lithium battery enclosures safely from exterior standoff.</p>
           </div>
-        </div>
-        <div class="h-scroll-card">
-          <img src="assets/images/syncforce_tool.png" alt="SyncForce Tool Design" loading="lazy" />
-          <div class="h-scroll-card-content">
-            <h3>Combination Tool Design</h3>
-            <p>A combination cutting-extinguisher tool with Storz couplings, replaceable nozzles (abrasive & foam), support handles, and individual water/abrasive inlet pipes. Built with stainless steel, naval brass, and tungsten carbide.</p>
+
+          <!-- Interactive Mode Switcher -->
+          <div class="mode-switch-card">
+            <span class="mode-switch-label">Select Active Rescue Mode:</span>
+            <div class="mode-switch-toggles">
+              <button class="mode-toggle-btn active" id="btnModeAbrasive" data-mode="abrasive">
+                <span>⚡ Abrasive Cutting</span>
+              </button>
+              <button class="mode-toggle-btn" id="btnModeFoam" data-mode="foam">
+                <span>🛡️ Foam Extinguishing</span>
+              </button>
+            </div>
+            <div class="mode-display-box" id="modeDisplayBox">
+              <h4 id="modeTitle">Water + Tungsten Abrasive Mixture</h4>
+              <p id="modeDesc">Ultra-high pressure abrasive slurry punctures ultra-high-strength steel car bodywork and battery casings within seconds without generating thermal sparks.</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- SyncForce Specs -->
+    <!-- 3-Step Emergency Workflow: Connect, Lock, Operate -->
+    <div class="workflow-protocol-section">
+      <div class="suite-header">
+        <span class="section-tag">Rapid Response Ergonomics</span>
+        <h3>Connect · Lock · Operate</h3>
+        <p>A modular system designed to be operated with heavy firefighter bunker gloves in zero-visibility smoke</p>
+      </div>
+
+      <div class="protocol-grid">
+        <div class="protocol-card">
+          <div class="protocol-step-num">01</div>
+          <div class="protocol-thumb">
+            <img src="assets/crops/syncforce_workflow.jpg" alt="Connect Step" loading="lazy" />
+          </div>
+          <h4>CONNECT</h4>
+          <p>Attach the specialized quick-change nozzle: Tungsten Abrasive nozzle for hull piercing or Foam nozzle for thermal suppression.</p>
+        </div>
+
+        <div class="protocol-card">
+          <div class="protocol-step-num">02</div>
+          <div class="protocol-thumb">
+            <img src="assets/crops/syncforce_prototype_tool.jpg" alt="Lock Step" loading="lazy" />
+          </div>
+          <h4>LOCK</h4>
+          <p>Instant quarter-turn engagement via symmetrical <strong>Naval Brass Storz Coupling</strong>. Sexless joinery eliminates male/female alignment delays.</p>
+        </div>
+
+        <div class="protocol-card">
+          <div class="protocol-step-num">03</div>
+          <div class="protocol-thumb">
+            <img src="assets/crops/syncforce_nozzles.jpg" alt="Operate Step" loading="lazy" />
+          </div>
+          <h4>OPERATE</h4>
+          <p>Direct the medium via ergonomic stainless handles with shock-absorbing textured rubber grips designed to counter severe 300-bar recoil.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Material Science & Tool Breakdown -->
     <div class="syncforce-specs">
       <div class="spec-block">
         <div class="spec-number">300</div>
         <div class="spec-unit">bar</div>
-        <div class="spec-detail">Water Pressure</div>
+        <div class="spec-detail">Piercing Pressure</div>
       </div>
       <div class="spec-block">
-        <div class="spec-number">2</div>
-        <div class="spec-unit">modes</div>
-        <div class="spec-detail">Abrasive & Foam</div>
+        <div class="spec-number">Naval Brass</div>
+        <div class="spec-unit">Alloy</div>
+        <div class="spec-detail">Water Pipe & Storz Joint</div>
       </div>
       <div class="spec-block">
-        <div class="spec-number">5</div>
-        <div class="spec-unit">materials</div>
-        <div class="spec-detail">SS, Brass, Tungsten</div>
+        <div class="spec-number">Tungsten</div>
+        <div class="spec-unit">Carbide</div>
+        <div class="spec-detail">Abrasive/Foam Conduit</div>
+      </div>
+      <div class="spec-block">
+        <div class="spec-number">1:1 Scale</div>
+        <div class="spec-unit">Prototype</div>
+        <div class="spec-detail">3D Printed + Metal Built</div>
       </div>
     </div>
   </section>
 
-  <!-- ============ AVOSPIN — ROTATING SHOWCASE ============ -->
+  <!-- ============================================================
+       03. AVOSPIN — SENSORY FIDGET TOY
+       ============================================================ -->
   <section id="avospin" class="project-section project-avospin">
     <div class="project-reveal-header">
       <span class="project-num">03</span>
       <div class="project-num-line"></div>
-      <span class="project-cat">Health & Wellness</span>
+      <span class="project-cat">Sensory & Mental Wellness · Kinematic Mechanism</span>
+      <button class="slide-inspect-btn" data-slide="14" title="Inspect Original Portfolio Slide">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+        <span>View Slide</span>
+      </button>
     </div>
 
-    <!-- AvoSpin Hero with rotating avocado -->
     <div class="avospin-hero">
       <div class="avo-orbit" id="avoOrbit">
         <div class="avo-ring ring-1"></div>
         <div class="avo-ring ring-2"></div>
         <div class="avo-ring ring-3"></div>
       </div>
+      <span class="project-eyebrow" style="color: var(--accent-green);">Tactile Grounding & Adolescent Focus</span>
       <h2 class="project-mega-title avospin-color">AVOSPIN</h2>
-      <p class="project-mega-sub">Avocado-Shaped Sensory Fidget Toy</p>
+      <p class="project-mega-sub">Avocado-Shaped Sensory Planetary Gear Fidget Accessory</p>
       <div class="project-meta-pills">
-        <span class="meta-pill avo-pill">2 Months</span>
-        <span class="meta-pill avo-pill">Individual Project</span>
-        <span class="meta-pill avo-pill">Elective</span>
+        <span class="meta-pill avo-pill">2 Months Elective</span>
+        <span class="meta-pill avo-pill">5-Day Rapid Build Sprint</span>
+        <span class="meta-pill avo-pill">6 Gear Iterations</span>
+        <span class="meta-pill avo-pill">Functional Planetary Train</span>
       </div>
     </div>
 
-    <!-- Showcase Section with Spinner -->
-    <div class="avospin-showcase">
-      <div class="avospin-spinner" id="avospinSpinner">
-        <img src="assets/images/avospin_detail.png" alt="AvoSpin Detail" loading="lazy" />
-      </div>
-      <div class="avospin-features">
-        <div class="avospin-feature">
-          <h4>Planetary Gear System</h4>
-          <p>Multiple gears rotate together in a compact configuration, providing satisfying motion and tactile feedback for stress relief.</p>
-        </div>
-        <div class="avospin-feature">
-          <h4>Ergonomic Form</h4>
-          <p>Teardrop/oval avocado shape is naturally curvy and textured — fits comfortably in the palm of a hand.</p>
-        </div>
-        <div class="avospin-feature">
-          <h4>Cultural Symbol</h4>
-          <p>A powerful cultural symbol deeply embedded in the teenage and young adult aesthetic, making it appealing as a lifestyle accessory.</p>
-        </div>
-        <div class="avospin-feature">
-          <h4>Precision Components</h4>
-          <p>Sun gear, planetary gears, rack, main body, and ball bearings — all working in harmony for smooth operation.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Gallery -->
-    <div class="project-gallery">
-      <div class="gallery-grid two-col">
-        <div class="gallery-item">
-          <img src="assets/images/avospin_concept.png" alt="AvoSpin Concept" loading="lazy" />
-          <div class="gallery-item-overlay">
-            <h4>Concept Development</h4>
-            <p>From avocado inspiration to functional gear toy</p>
+    <!-- Health Factor & Context -->
+    <div class="project-narrative-container">
+      <div class="narrative-grid two-col">
+        <div class="narrative-block">
+          <h3 class="narrative-title">Dealing with Mental Health as a Teen</h3>
+          <p class="narrative-text">
+            Sensory fidget tools are proven to calm hyperactive nervous systems, improve attention span, and ground teenagers during overwhelming anxiety or mundane classrooms. However, most fidget toys feel cheap, noisy, or childish.
+          </p>
+          <p class="narrative-text">
+            <strong>AvoSpin</strong> transforms the fidget toy into a sophisticated lifestyle accessory. Inspired by the naturally curvy, textured teardrop silhouette of an avocado—a cultural icon deeply embedded in Gen-Z aesthetics—it conceals an intricate <strong>functional planetary gear train</strong> within an ergonomic palm-sized form.
+          </p>
+          <div class="avospin-metrics-row">
+            <div class="avo-metric-card">
+              <span class="metric-val">1:1</span>
+              <span class="metric-lbl">Palm Ergonomics</span>
+            </div>
+            <div class="avo-metric-card">
+              <span class="metric-val">5 Days</span>
+              <span class="metric-lbl">Build & Rebuild Sprint</span>
+            </div>
+            <div class="avo-metric-card">
+              <span class="metric-val">6x</span>
+              <span class="metric-lbl">Gear Builds Iterated</span>
+            </div>
           </div>
         </div>
-        <div class="gallery-item">
-          <img src="assets/images/avospin_prototype.png" alt="AvoSpin Prototype" loading="lazy" />
-          <div class="gallery-item-overlay">
-            <h4>Prototyping</h4>
-            <p>3D printed prototype with functional gear mechanism</p>
+
+        <div class="avospin-interactive-display">
+          <div class="avospin-spinner-box">
+            <div class="avospin-spinner" id="avospinSpinner">
+              <img src="assets/images/avospin_detail.png" alt="AvoSpin Planetary Gear Detail" loading="lazy" />
+            </div>
+            <div class="spinner-orbit-dots"></div>
+          </div>
+          <div class="spinner-control-prompt">
+            <span>Scroll & hover to accelerate planetary gear velocity</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Exploded Kinematic Anatomy -->
+    <div class="avospin-anatomy-section">
+      <div class="suite-header">
+        <span class="section-tag">Mechanical Architecture</span>
+        <h3>Exploded View & Mechanism Breakdown</h3>
+        <p>Multiple gear elements rotate in synchronized planetary motion for deeply satisfying tactile resistance</p>
+      </div>
+
+      <div class="anatomy-grid">
+        <div class="anatomy-card">
+          <div class="anatomy-badge">Interactive Input</div>
+          <h4>Interactive Thumb Cap</h4>
+          <p>Ergonomically contoured concave thumb cap providing comfortable single-digit actuation without slipping.</p>
+        </div>
+        <div class="anatomy-card">
+          <div class="anatomy-badge">Center Drive</div>
+          <h4>Central Sun Gear</h4>
+          <p>Directly coupled to thumb cap; delivers radial torque outwards into the planetary satellite cluster.</p>
+        </div>
+        <div class="anatomy-card">
+          <div class="anatomy-badge">Satellite Orbit</div>
+          <h4>Planetary Satellite Gears</h4>
+          <p>Compound satellites orbiting between the sun gear and outer ring rack, creating hypnotic multi-speed visual feedback.</p>
+        </div>
+        <div class="anatomy-card">
+          <div class="anatomy-badge">Whisper-Quiet Glide</div>
+          <h4>Perimeter Rack & Bearings</h4>
+          <p>Integrated rack track and micro ball bearings ensuring smooth, fluid, whisper-quiet operation in quiet classrooms.</p>
+        </div>
+      </div>
+
+      <div class="exploded-banner-image">
+        <img src="assets/crops/avospin_exploded_view.jpg" alt="AvoSpin Exploded CAD Breakdown" loading="lazy" />
+      </div>
+    </div>
+
+    <!-- 5-Day Prototyping Sprint: 6 Gear Iterations & 3 Body Builds -->
+    <div class="avospin-sprint-section">
+      <div class="suite-header">
+        <span class="section-tag">Rapid Iteration Sprint</span>
+        <h3>Built, Tested and Rebuilt in 5 Days</h3>
+        <p>Systematic physical prototyping cycles to achieve the optimal gear mesh tolerance and tactile torque feel</p>
+      </div>
+
+      <div class="iterations-comparison-grid">
+        <div class="iteration-col">
+          <div class="iter-card">
+            <h4>3 Body Build Progressions (A → B → C)</h4>
+            <div class="iter-img">
+              <img src="assets/crops/avospin_iterations_comparison.jpg" alt="Body and Gear Iterations" loading="lazy" />
+            </div>
+            <ul class="iter-notes">
+              <li><strong>Build A:</strong> Separated rack track modular assembly.</li>
+              <li><strong>Build B:</strong> Integrated housing rack track to eliminate flex.</li>
+              <li><strong>Build C:</strong> Integrated micro ball bearings for zero-friction glide.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="iteration-col">
+          <div class="iter-card">
+            <h4>6 Gear Build Iterations (1 → 6)</h4>
+            <div class="iter-img">
+              <img src="assets/crops/avospin_final_3dprint.jpg" alt="Final 3D Printed Functional Prototype" loading="lazy" />
+            </div>
+            <ul class="iter-notes">
+              <li>Iterated tooth pitch, clearance tolerances, and pressure angles.</li>
+              <li>Final 1:1 scale fully functional 3D printed prototype in matte avocado bioplastic.</li>
+              <li>Integrated keychain loop holder for everyday carry portability.</li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ MODULO — ASSEMBLY ANIMATION ============ -->
-  <section id="modulo" class="project-section project-modulo">
+  <!-- ============================================================
+       04. ACTICOMPRESS — SMART HEALTHCARE WEARABLES (ANATOMECH)
+       ============================================================ -->
+  <section id="acticompress" class="project-section project-acticompress">
     <div class="project-reveal-header">
       <span class="project-num">04</span>
       <div class="project-num-line"></div>
-      <span class="project-cat">Furniture Design</span>
+      <span class="project-cat">Smart Healthcare · Medical Wearables & Digital Product</span>
+      <button class="slide-inspect-btn" data-slide="17" title="Inspect Original Portfolio Slide">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+        <span>View Slide</span>
+      </button>
     </div>
 
-    <!-- Modulo Hero with blueprint grid -->
-    <div class="modulo-hero">
-      <div class="blueprint-grid" id="blueprintGrid"></div>
-      <h2 class="project-mega-title modulo-color">MODULO</h2>
-      <p class="project-mega-sub">Flatpack Living Room Furniture</p>
+    <div class="acticompress-hero">
+      <div class="compression-wave-rings">
+        <div class="c-wave w1"></div>
+        <div class="c-wave w2"></div>
+        <div class="c-wave w3"></div>
+      </div>
+      <span class="project-eyebrow" style="color: var(--accent-blue);">Anatomech · End-to-End Industrial & UX Design</span>
+      <h2 class="project-mega-title" style="color: var(--accent-blue);">ACTICOMPRESS</h2>
+      <p class="project-mega-sub">Smart Healthcare Compression Wearable Suite & Digital Ecosystem</p>
       <div class="project-meta-pills">
-        <span class="meta-pill modulo-pill">4 Months</span>
-        <span class="meta-pill modulo-pill">Individual Project</span>
-        <span class="meta-pill modulo-pill">Product Design Studio</span>
+        <span class="meta-pill acti-pill">End-to-End Product Development</span>
+        <span class="meta-pill acti-pill">10 Patient & Specialist Interviews</span>
+        <span class="meta-pill acti-pill">DFMA for Smart Garments</span>
+        <span class="meta-pill acti-pill">Mobile & Web PMS Ecosystem</span>
       </div>
     </div>
 
-    <!-- Assembly Showcase -->
-    <div class="modulo-assembly">
-      <div class="modulo-visual">
-        <div class="modulo-parts">
-          <div class="modulo-part" id="moduloPart1">
-            <img src="assets/images/modulo_what.png" alt="Modulo Design" loading="lazy" />
+    <!-- NDA Notice Banner -->
+    <div class="nda-notice-banner">
+      <div class="nda-icon">🔒</div>
+      <div class="nda-text">
+        <strong>Confidentiality Notice:</strong> Production and manufacturing-level process work, detailed electronics schematics, and proprietary sensor integration not displayed due to non-disclosure agreement (NDA).
+      </div>
+    </div>
+
+    <!-- Clinical Research & Discovery -->
+    <div class="project-narrative-container">
+      <div class="narrative-grid two-col">
+        <div class="narrative-block">
+          <h3 class="narrative-title">Rethinking Compression Therapy</h3>
+          <p class="narrative-text">
+            Traditional static compression bandages and stockings suffer from massive patient non-compliance: they are excruciatingly painful to put on (donning) and remove (doffing), slip out of calibrated pressure gradients, and offer zero feedback on therapeutic efficacy.
+          </p>
+          <p class="narrative-text">
+            Ketaki led the comprehensive design study for <strong>Acticompress</strong>, developing static product physical ergonomics, brand identity, visual communication, DFMA for wearable sleeves, and the companion cross-platform mobile and clinical web dashboards.
+          </p>
+          
+          <div class="research-stats-grid">
+            <div class="stat-card-mini">
+              <span class="num">10</span>
+              <span class="label">In-depth Interviews (Patients & Vascular Specialists)</span>
+            </div>
+            <div class="stat-card-mini">
+              <span class="num">4</span>
+              <span class="label">Full Concept Iteration Cycles</span>
+            </div>
+            <div class="stat-card-mini">
+              <span class="num">2</span>
+              <span class="label">Dedicated Therapy Modes (Health & Sports)</span>
+            </div>
+            <div class="stat-card-mini">
+              <span class="num">1:1</span>
+              <span class="label">Paper & Fabric Mockup Sizing Studies</span>
+            </div>
           </div>
-          <div class="modulo-part" id="moduloPart2">
-            <img src="assets/images/modulo_context.png" alt="Modulo Context" loading="lazy" />
+        </div>
+
+        <div class="research-visual-column">
+          <div class="research-image-card">
+            <img src="assets/crops/acticompress_research_grid.jpg" alt="Acticompress Market & User Research" loading="lazy" />
+            <div class="img-caption-strip">Market research, competitor analysis, mind mapping & USP documentation</div>
           </div>
-          <div class="modulo-part" id="moduloPart3">
-            <img src="assets/images/modulo_sketch.png" alt="Modulo Sketch" loading="lazy" />
+          <div class="research-image-card">
+            <img src="assets/crops/acticompress_mockup_prototypes.jpg" alt="Acticompress 1:1 Scale Mockup Prototyping" loading="lazy" />
+            <div class="img-caption-strip">4 concept cycles, segmentation study & 1:1 scale paper mockups</div>
           </div>
         </div>
       </div>
-      <div class="modulo-info">
-        <h3>What is Modulo?</h3>
-        <p>A flat pack living room furniture, easy to assemble with only 4 components joined by simple screwing-based joinery. Designed for contemporary home environments with a focus on structural integrity and modern aesthetics.</p>
-        <div class="modulo-specs">
-          <div class="modulo-spec">
-            <div class="spec-label">Components</div>
-            <div class="spec-value">Only 4 Parts</div>
+    </div>
+
+    <!-- Dual Mode CMF & Ecosystem: Health Mode vs Sports Mode -->
+    <div class="acticompress-dual-ecosystem">
+      <div class="suite-header">
+        <span class="section-tag">CMF & UI Ecosystem</span>
+        <h3>Tailored for Clinical Recovery & Athletic Performance</h3>
+        <p>Switch between the two distinct user personas and Color-Material-Finish schemes</p>
+      </div>
+
+      <div class="cmf-mode-switch">
+        <button class="cmf-tab-btn active" id="btnCmfHealth" data-cmf="health">🏥 Clinical Health Mode</button>
+        <button class="cmf-tab-btn" id="btnCmfSports" data-cmf="sports">⚡ Athletic Sports Mode</button>
+      </div>
+
+      <div class="cmf-display-container" id="cmfDisplayContainer">
+        <div class="cmf-content-card">
+          <div class="cmf-card-info">
+            <h4 id="cmfTitle">Clinical Health Mode</h4>
+            <p id="cmfDescription">
+              Soft, anti-microbial hypoallergenic textiles with neutral soothing medical tones. Engineered for elderly patients with venous edema and lymphedema, featuring magnetic alignment latches for painless self-donning.
+            </p>
+            <div class="cmf-swatches-row">
+              <span class="cmf-swatch" style="background: #e0f2fe;" title="Medical Cloud White"></span>
+              <span class="cmf-swatch" style="background: #38bdf8;" title="Therapeutic Cyan"></span>
+              <span class="cmf-swatch" style="background: #0284c7;" title="Clinical Navy"></span>
+              <span class="cmf-swatch" style="background: #64748b;" title="Slate Comfort"></span>
+            </div>
           </div>
-          <div class="modulo-spec">
-            <div class="spec-label">Assembly</div>
-            <div class="spec-value">No Special Tools</div>
+          <div class="cmf-card-preview">
+            <img src="assets/crops/acticompress_testing_cmf.jpg" alt="Acticompress CMF Testing" loading="lazy" />
           </div>
-          <div class="modulo-spec">
-            <div class="spec-label">Packaging</div>
-            <div class="spec-value">Flatpack Optimized</div>
+        </div>
+      </div>
+
+      <!-- Mobile & Web UI Showcase -->
+      <div class="ui-showcase-section">
+        <div class="ui-showcase-header">
+          <h4>Integrated Digital Suite: Mobile App & Physician PMS Dashboard</h4>
+          <p>Real-time pressure sensor feedback, compliance tracking, and remote doctor monitoring</p>
+        </div>
+        <div class="ui-banner-image">
+          <img src="assets/crops/acticompress_app_ui.jpg" alt="Acticompress Mobile & Web UI" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       05. OUTSIDE THE STUDIO — PASSIONS BEYOND DESIGN
+       ============================================================ -->
+  <section id="outside-studio" class="project-section project-outside">
+    <div class="project-reveal-header">
+      <span class="project-num">05</span>
+      <div class="project-num-line"></div>
+      <span class="project-cat">Creative Explorations · Passions Beyond Industrial Design</span>
+      <button class="slide-inspect-btn" data-slide="20" title="Inspect Original Portfolio Slide">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+        <span>View Slide</span>
+      </button>
+    </div>
+
+    <div class="outside-hero">
+      <div class="f1-speed-trail"></div>
+      <span class="project-eyebrow" style="color: var(--accent-amber);">Tactile Intuition · Kinesthetics · Artisan Craft</span>
+      <h2 class="project-mega-title" style="color: var(--accent-amber);">OUTSIDE THE STUDIO</h2>
+      <p class="project-mega-sub">Multifaceted Creative & Athletic Pursuits That Shape My Design Thinking</p>
+      <div class="project-meta-pills">
+        <span class="meta-pill outside-pill">LEGO McLaren F1 Build</span>
+        <span class="meta-pill outside-pill">Origami Artist & 2025 Instructor</span>
+        <span class="meta-pill outside-pill">Kathak Performer (3 Certifications)</span>
+        <span class="meta-pill outside-pill">State-Level Badminton</span>
+      </div>
+    </div>
+
+    <div class="project-narrative-container">
+      <p class="outside-intro-text">
+        Great industrial design isn't born in isolation behind CAD monitors. Ketaki's sensitivity to mechanics, material textures, precision tolerances, and human posture is actively trained through hands-on creative crafts and competitive athletics.
+      </p>
+
+      <!-- Passions Masonry Grid -->
+      <div class="passions-masonry-grid">
+        <!-- 1. LEGO F1 -->
+        <div class="passion-card" data-tilt>
+          <div class="passion-img">
+            <img src="assets/crops/outside_lego_mclaren.jpg" alt="LEGO McLaren F1 Build" loading="lazy" />
           </div>
-          <div class="modulo-spec">
-            <div class="spec-label">Joinery</div>
-            <div class="spec-value">Screw-Based System</div>
+          <div class="passion-content">
+            <span class="passion-tag">Mechanics & Assembly</span>
+            <h4>LEGO McLaren F1 Race Car</h4>
+            <p>Built my personal favorite McLaren Formula 1 race car. Exploring differential gearboxes, independent suspension linkages, and complex packaging in brick architecture.</p>
+          </div>
+        </div>
+
+        <!-- 2. Origami -->
+        <div class="passion-card" data-tilt>
+          <div class="passion-img">
+            <img src="assets/crops/outside_origami.jpg" alt="Origami Paper Geometry" loading="lazy" />
+          </div>
+          <div class="passion-content">
+            <span class="passion-tag">Geometric Paper Craft</span>
+            <h4>Origami Art & School Teaching</h4>
+            <p>Lifelong exploration of planar folding mathematics. Earned the opportunity to teach origami paper engineering and spatial geometry to school students in 2025.</p>
+          </div>
+        </div>
+
+        <!-- 3. Kathak Dance & Badminton -->
+        <div class="passion-card" data-tilt>
+          <div class="passion-img">
+            <img src="assets/crops/outside_dance_badminton.jpg" alt="Kathak Dance and State Badminton" loading="lazy" />
+          </div>
+          <div class="passion-content">
+            <span class="passion-tag">Rhythm, Reflexes & Discipline</span>
+            <h4>Kathak Performer & State Badminton</h4>
+            <p>Trained classical Kathak dancer with 3 official certifications, instilling an intuitive grasp of rhythm and spatial balance. State-level badminton player actively competing with agility and focus.</p>
+          </div>
+        </div>
+
+        <!-- 4. Embroidery & Souvenirs -->
+        <div class="passion-card" data-tilt>
+          <div class="passion-img">
+            <img src="assets/crops/outside_embroidery_souvenirs.jpg" alt="Embroidery, Stitching and Souvenir Collection" loading="lazy" />
+          </div>
+          <div class="passion-content">
+            <span class="passion-tag">Tactile Materials</span>
+            <h4>Embroidery, Stitching & Souvenirs</h4>
+            <p>Hands-on mastery over thread tensions, textile weaves, and needlecraft. Passionate collector of artisanal souvenirs that embody localized cultural manufacturing.</p>
+          </div>
+        </div>
+
+        <!-- 5. Painting, Sketching & Digital Art -->
+        <div class="passion-card" data-tilt>
+          <div class="passion-img">
+            <img src="assets/crops/outside_painting_sketching.jpg" alt="Acrylic Painting, Hand Sketching and Digital Art" loading="lazy" />
+          </div>
+          <div class="passion-content">
+            <span class="passion-tag">Visual Storytelling</span>
+            <h4>Acrylic Painting & Digital Illustration</h4>
+            <p>Acrylic painting serves as an expressive color retreat. Daily hand sketching grounds raw concept ideation, supplemented by digital illustrations shared via @ketakidraws.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- ============================================================
+       06. OTHER EXPLORATIONS — MULTIDISCIPLINARY DESIGN
+       ============================================================ -->
+  <section id="explorations" class="project-section project-explorations">
+    <div class="project-reveal-header">
+      <span class="project-num">06</span>
+      <div class="project-num-line"></div>
+      <span class="project-cat">Project Work · Multidisciplinary Design Studio</span>
+      <button class="slide-inspect-btn" data-slide="21" title="Inspect Original Portfolio Slide">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+        <span>View Slide</span>
+      </button>
+    </div>
+
+    <div class="explorations-hero">
+      <div class="blueprint-grid" id="blueprintGrid"></div>
+      <span class="project-eyebrow" style="color: var(--accent-amber);">Furniture Joinery · Sustainable Brands · Craft Residencies</span>
+      <h2 class="project-mega-title" style="color: var(--text-primary);">OTHER EXPLORATIONS</h2>
+      <p class="project-mega-sub">Multidisciplinary Design Works Spanning Furniture, Branding & Heritage Craft</p>
+      <div class="project-meta-pills">
+        <span class="meta-pill">Modulo Flatpack Furniture</span>
+        <span class="meta-pill">EchoBloom ADI Competition</span>
+        <span class="meta-pill">Jaipur Blue Pottery</span>
+        <span class="meta-pill">Healthcare Furniture</span>
+      </div>
+    </div>
+
+    <!-- The 4 Featured Projects Showcase -->
+    <div class="project-narrative-container">
+      <div class="explorations-showcase-grid">
+        <!-- 1. MODULO -->
+        <div class="exploration-card modulo-feature-card">
+          <div class="exploration-card-header">
+            <span class="project-tag-pill">Furniture & Joinery Design</span>
+            <h3>MODULO — Flatpack Living Room Furniture</h3>
+          </div>
+          <div class="exploration-card-body">
+            <div class="exploration-card-image">
+              <img src="assets/crops/explorations_modulo.jpg" alt="Modulo Flatpack Chair" loading="lazy" />
+            </div>
+            <div class="exploration-card-text">
+              <p>
+                To design a contemporary household chair that utilizes a durable joinery system for effortless assembly and disassembly without specialized tools.
+              </p>
+              <p>
+                Engineered with <strong>only 4 core components</strong> joined by a robust screw-based mechanism. Optimized for flatpack shipping to drastically reduce logistics freight volume and carbon emissions while maintaining elegant domestic warmth.
+              </p>
+              <div class="modulo-specs-pills">
+                <span>🪑 4 Components Only</span>
+                <span>📦 Flatpack Optimized</span>
+                <span>🔧 Zero Special Tools</span>
+                <span>🔩 Screw-Based Joinery</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. ECHOBLOOM -->
+        <div class="exploration-card">
+          <div class="exploration-card-header">
+            <span class="project-tag-pill">Brand & Sustainable Systems</span>
+            <h3>EchoBloom — ADI Harit Setu Brand Winner</h3>
+          </div>
+          <div class="exploration-card-body">
+            <div class="exploration-card-image">
+              <img src="assets/crops/explorations_echobloom.jpg" alt="EchoBloom Brand Design" loading="lazy" />
+            </div>
+            <div class="exploration-card-text">
+              <p>
+                Brand Design Competition entry for <strong>ADI Harit Setu</strong>. Ketaki served as Project Lead, driving the sustainable visual identity, circular packaging architecture, and ecological consumer communication.
+              </p>
+              <span class="scope-highlight">Role: Project Lead · Identity, Packaging & Strategy</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. JAIPUR BLUE POTTERY -->
+        <div class="exploration-card">
+          <div class="exploration-card-header">
+            <span class="project-tag-pill">Craft & Material Exploration</span>
+            <h3>Jaipur Blue Pottery — IICD Craft Residency</h3>
+          </div>
+          <div class="exploration-card-body">
+            <div class="exploration-card-image">
+              <img src="assets/crops/explorations_blue_pottery.jpg" alt="Jaipur Blue Pottery at IICD" loading="lazy" />
+            </div>
+            <div class="exploration-card-text">
+              <p>
+                Immersive material and craft residency at the <strong>Indian Institute of Crafts & Design (IICD), Jaipur</strong>. Exploring traditional quartz powder dough, glass frit kneading, hand sculpting, and copper/cobalt oxide glazing techniques.
+              </p>
+              <span class="scope-highlight">Focus: Traditional Quartz Craft Revival & Modern Form</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. HEALTHCARE FURNITURE -->
+        <div class="exploration-card">
+          <div class="exploration-card-header">
+            <span class="project-tag-pill">Ergonomic Medical Design</span>
+            <h3>Healthcare Furniture Design Project</h3>
+          </div>
+          <div class="exploration-card-body">
+            <div class="exploration-card-image">
+              <img src="assets/crops/explorations_healthcare.jpg" alt="Healthcare Furniture Design" loading="lazy" />
+            </div>
+            <div class="exploration-card-text">
+              <p>
+                Specialized ergonomic seating and patient accommodation for clinical environments, prioritizing postural support, rapid hygienic disinfection, and modular clinical adaptability.
+              </p>
+              <span class="scope-highlight">Focus: Clinical Posture, Cleanability & Durability</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FULLSCREEN SLIDE INSPECTOR MODAL
+       ============================================================ -->
+  <div id="slideModal" class="slide-modal" aria-hidden="true" role="dialog">
+    <div class="slide-modal-backdrop" id="modalBackdrop"></div>
+    <div class="slide-modal-container">
+      <div class="slide-modal-header">
+        <div class="slide-modal-info">
+          <span class="modal-slide-counter" id="modalSlideCounter">Slide 01 / 22</span>
+          <h4 class="modal-slide-title" id="modalSlideTitle">Ketaki Khadilkar Portfolio</h4>
+        </div>
+        <div class="slide-modal-actions">
+          <button class="modal-btn" id="btnZoomToggle" title="Toggle Full Resolution Zoom">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/></svg>
+          </button>
+          <button class="modal-btn modal-close-btn" id="btnModalClose" title="Close Slide Viewer (Esc)">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="slide-modal-viewer">
+        <button class="modal-nav-arrow prev" id="btnModalPrev" title="Previous Slide (Left Arrow)">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <div class="slide-modal-image-wrapper" id="modalImageWrapper">
+          <img id="modalMainImage" src="assets/portfolio_pages/page_01.jpg" alt="Portfolio Slide" />
+        </div>
+        <button class="modal-nav-arrow next" id="btnModalNext" title="Next Slide (Right Arrow)">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+
+      <!-- Thumbnail Carousel Scroller -->
+      <div class="slide-modal-thumbnails" id="modalThumbnails">
+        <!-- Generated via JS for all 22 pages -->
+      </div>
+    </div>
+  </div>
 
   <!-- ============ CONTACT / FOOTER ============ -->
   <section id="contact">
