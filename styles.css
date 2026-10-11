@@ -996,11 +996,9 @@ body::after {
    ============================================================ */
 .project-section {
   position: relative;
-  overflow: hidden;
   padding-bottom: 2.5rem;
   border-top: 1px solid var(--border-subtle);
   background: transparent !important;
-  contain: paint;
 }
 
 /* Section Ambient Highlights matching homepage warm palette */
@@ -1238,6 +1236,46 @@ body::after {
   transform: translateX(4px);
 }
 
+/* Slique Narrative Box (Full Width, Centered, No Quotes) */
+.slique-narrative-box {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.slique-narrative-box .narrative-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--text-primary);
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.02em;
+}
+
+.slique-narrative-box .narrative-text {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+}
+
+.slique-pain-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8rem;
+  margin-top: 1.8rem;
+  max-width: 820px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 640px) {
+  .slique-pain-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .quotes-card-column {
   display: flex;
   flex-direction: column;
@@ -1402,10 +1440,12 @@ body::after {
 }
 
 .toaster-scene {
-  padding: 1rem 5vw 2.5rem;
+  padding: 2.5rem 5vw 3rem;
   display: flex;
   justify-content: center;
-  overflow-x: auto;
+  align-items: center;
+  position: relative;
+  z-index: 2;
 }
 
 .toaster-machine {
@@ -1756,6 +1796,139 @@ body::after {
   font-size: 0.82rem;
   color: var(--text-secondary);
   line-height: 1.55;
+}
+
+/* SyncForce Main Product Showcase */
+.syncforce-showcase-container {
+  max-width: 1350px;
+  margin: 1.5rem auto 2.5rem;
+  padding: 0 5vw;
+}
+
+.syncforce-hero-product-card {
+  position: relative;
+  background: rgba(16, 16, 18, 0.82);
+  border: 1px solid rgba(255, 68, 68, 0.25);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(255, 68, 68, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.product-badge-pill {
+  position: absolute;
+  top: 1.5rem;
+  left: 2rem;
+  z-index: 10;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: var(--accent-syncforce);
+  padding: 0.45rem 1.2rem;
+  background: rgba(20, 10, 10, 0.85);
+  border: 1px solid rgba(255, 68, 68, 0.35);
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.product-image-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 21 / 10;
+  max-height: 520px;
+  overflow: hidden;
+  background: radial-gradient(circle at 60% 40%, rgba(255, 68, 68, 0.12) 0%, #080808 80%);
+}
+
+.product-image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.8s var(--ease-expo);
+}
+
+.syncforce-hero-product-card:hover .product-image-frame img {
+  transform: scale(1.03);
+}
+
+.product-overlay-callouts {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.callout-tag {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 1rem;
+  background: rgba(15, 15, 15, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: #fff;
+}
+
+.callout-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-syncforce);
+  box-shadow: 0 0 10px var(--accent-syncforce);
+}
+
+.callout-tag.callout-1 { top: 22%; left: 8%; }
+.callout-tag.callout-2 { bottom: 25%; right: 10%; }
+.callout-tag.callout-3 { top: 30%; right: 18%; }
+
+@media (max-width: 768px) {
+  .callout-tag { display: none; }
+}
+
+.product-card-footer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding: 1.5rem 2.5rem;
+  background: rgba(12, 12, 14, 0.95);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.footer-spec-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.footer-spec-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.footer-spec-val {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+@media (max-width: 640px) {
+  .product-card-footer {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1.2rem 1.5rem;
+  }
 }
 
 /* 3-Step Protocol Cards — ZERO DEAD SPACE */

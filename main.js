@@ -548,45 +548,32 @@ function initSliqueAnimations() {
   const slotGlows = document.querySelectorAll('.slot-glow');
   const sliqueLever = document.getElementById('sliqueLever');
 
-  // Initial state: toast cards start inside the slots
-  gsap.set(toastCards, { y: 110, opacity: 0 });
-  gsap.set(slotGlows, { opacity: 0 });
+  // Initial state: Cards are lowered inside slots (visible top lip)
+  // NEVER opacity: 0 so cards are always visible on Vercel
+  gsap.set(toastCards, { y: 65 });
+  gsap.set(slotGlows, { opacity: 0.2 });
 
-  // Pinned scroll-driven toaster popping animation
+  // ScrollTrigger: Automatically triggers the toaster pop as user reaches toaster
   const toasterTl = gsap.timeline({
     scrollTrigger: {
       trigger: '.toaster-scene',
-      start: 'center center',
-      end: '+=150%',
-      pin: true,
-      scrub: 1,
-      anticipatePin: 1,
-      invalidateOnRefresh: true,
-      onLeave: () => {
-        gsap.to(toastCards, { y: 0, opacity: 1, duration: 0.2, overwrite: 'auto' });
-        gsap.to(slotGlows, { opacity: 0.45, duration: 0.2, overwrite: 'auto' });
-        if (sliqueLever) gsap.to(sliqueLever, { y: 0, duration: 0.2, overwrite: 'auto' });
-      },
-      onLeaveBack: () => {
-        gsap.to(toastCards, { y: 110, opacity: 0, duration: 0.2, overwrite: 'auto' });
-        gsap.to(slotGlows, { opacity: 0, duration: 0.2, overwrite: 'auto' });
-        if (sliqueLever) gsap.to(sliqueLever, { y: 0, duration: 0.2, overwrite: 'auto' });
-      },
+      start: 'top 78%',
+      toggleActions: 'play none none none',
     },
   });
 
   // Step 1: Lever pushes down into toasting position
   if (sliqueLever) {
-    toasterTl.to(sliqueLever, { y: 24, duration: 0.3, ease: 'power2.inOut' });
+    toasterTl.to(sliqueLever, { y: 24, duration: 0.25, ease: 'power2.in' });
   }
 
-  // Step 2: Heating elements ignite with intense radiant amber/coral glow
+  // Step 2: Heating elements ignite with intense radiant amber glow
   toasterTl.to(slotGlows, {
-    opacity: 0.9,
-    duration: 0.35,
-    stagger: 0.08,
+    opacity: 0.95,
+    duration: 0.3,
+    stagger: 0.05,
     ease: 'power1.in',
-  }, '-=0.15');
+  }, '-=0.1');
 
   // Step 3: Lever releases with mechanical spring
   if (sliqueLever) {
@@ -595,28 +582,18 @@ function initSliqueAnimations() {
 
   // Step 4: Toast cards POP UP one by one with spring physics!
   toastCards.forEach((card, index) => {
-    toasterTl.to(slotGlows[index], {
-      opacity: 1,
-      duration: 0.2,
-      ease: 'power2.in',
-    }, index === 0 ? '-=0.15' : '+=0.04');
-
     toasterTl.to(card, {
       y: 0,
-      opacity: 1,
       duration: 0.65,
       ease: 'back.out(2.4)',
-    }, '-=0.12');
+    }, index === 0 ? '-=0.15' : '+=0.05');
 
     toasterTl.to(slotGlows[index], {
       opacity: 0.45,
       duration: 0.3,
       ease: 'power2.out',
-    }, '-=0.25');
+    }, '-=0.3');
   });
-
-  // Hold at full pop for user to absorb before smooth unpin
-  toasterTl.to({}, { duration: 0.4 });
 
   // Interactive Click on Toaster Lever: Toast again!
   if (sliqueLever) {
@@ -624,7 +601,7 @@ function initSliqueAnimations() {
       const popTl = gsap.timeline();
       popTl.to(sliqueLever, { y: 24, duration: 0.2, ease: 'power2.in' })
            .to(slotGlows, { opacity: 1, duration: 0.2, stagger: 0.03 }, '<')
-           .to(toastCards, { y: 65, duration: 0.2, stagger: 0.03, ease: 'power2.in' }, '<')
+           .to(toastCards, { y: 60, duration: 0.2, stagger: 0.03, ease: 'power2.in' }, '<')
            .to(sliqueLever, { y: 0, duration: 0.4, ease: 'elastic.out(1, 0.4)', delay: 0.2 })
            .to(toastCards, { y: 0, duration: 0.55, stagger: 0.06, ease: 'back.out(2.4)' }, '<')
            .to(slotGlows, { opacity: 0.45, duration: 0.35 }, '-=0.25');
@@ -634,7 +611,7 @@ function initSliqueAnimations() {
   // Hover effect on individual toast cards
   toastCards.forEach((card, index) => {
     card.addEventListener('mouseenter', () => {
-      gsap.to(card, { y: -14, duration: 0.3, ease: 'power2.out', overwrite: 'auto' });
+      gsap.to(card, { y: -16, duration: 0.3, ease: 'power2.out', overwrite: 'auto' });
       if (slotGlows[index]) {
         gsap.to(slotGlows[index], { opacity: 0.85, duration: 0.25 });
       }
@@ -719,6 +696,19 @@ function initSyncForceAnimations() {
       });
     });
   }
+
+  // Main Hero Product Showcase entrance
+  gsap.from('.syncforce-hero-product-card', {
+    y: 25,
+    opacity: 0.8,
+    duration: 0.8,
+    ease: 'power2.out',
+    scrollTrigger: {
+      trigger: '.syncforce-showcase-container',
+      start: 'top 80%',
+      toggleActions: 'play none none none',
+    },
+  });
 
   // Protocol cards stagger — subtle y only, NEVER INVISIBLE
   gsap.from('.protocol-card', {
